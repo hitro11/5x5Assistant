@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "163649345305",
+    "firebase_url": "https://x5-assistant.firebaseio.com",
+    "project_id": "x5-assistant",
+    "storage_bucket": "x5-assistant.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:163649345305:android:b68927808eb38ad2",
+        "android_client_info": {
+          "package_name": "hitro.a5x5assistant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "163649345305-7umbv631lapghabb14pob6d1kfjq3vcr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hitro.a5x5assistant",
+            "certificate_hash": "52CCD854EAEF34346B5977D95BC671C504BFB9FA"
+          }
+        },
+        {
+          "client_id": "163649345305-aeu9dllfjlv9cm6tsr0iup0d3hu4u11g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmZSYVTavcSWOceHUXM3SxfjcDlNaujK0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "163649345305-aeu9dllfjlv9cm6tsr0iup0d3hu4u11g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

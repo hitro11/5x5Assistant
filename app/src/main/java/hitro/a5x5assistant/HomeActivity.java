@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -22,8 +24,18 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, WorkoutSelectActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
         //get firebase auth instance
         auth = FirebaseAuth.getInstance();
@@ -74,21 +86,39 @@ public class HomeActivity extends AppCompatActivity {
                                    }
         );
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, WorkoutSelectActivity.class);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.action_bar, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.actionBarHome:
+                Intent intent2 = new Intent(HomeActivity.this, HomeActivity.class);
+                startActivity(intent2);
+                return true;
+
+            case R.id.actionBarSettings:
+                Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
                 startActivity(intent);
+                return true;
 
-            }
-        });
+            case R.id.actionBarLogout:
+                auth.signOut();
+                return true;
 
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
-    public void signOut() {
-        auth.signOut();
-    }
 
     @Override
     protected void onResume() {

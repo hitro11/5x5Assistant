@@ -7,6 +7,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,23 +38,15 @@ public class WorkoutBActivity extends AppCompatActivity {
     TextView txtSq, txtOHP, txtDL;
 
     //click counters
-    int a1Click = 0;
-    int a2Click = 0;
-    int a3Click = 0;
-    int a4Click = 0;
-    int a5Click = 0;
-    int b1Click = 0;
-    int b2Click = 0;
-    int b3Click = 0;
-    int b4Click = 0;
-    int b5Click = 0;
-    int c1Click = 0;
+    private int a1Click = 0, a2Click = 0, a3Click = 0, a4Click = 0, a5Click = 0,
+            b1Click = 0, b2Click = 0, b3Click = 0, b4Click = 0, b5Click = 0,
+            c1Click = 0;
 
     // button inits
     Button a1, a2, a3, a4, a5, b1, b2, b3 ,b4, b5, c1, fin;
     Drawable round, roundFilled;
 
-    private FirebaseAuth mAuth;
+    private FirebaseAuth auth;
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
 
@@ -88,67 +82,30 @@ public class WorkoutBActivity extends AppCompatActivity {
         txtDL = (TextView)findViewById(R.id.txtDLweight);
 
         //firebase user auth refs
+        auth = FirebaseAuth.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
-        uid = user.getUid().toString();
+        uid = user.getUid();
 
         //firebase database ref
         mFirebaseInstance = FirebaseDatabase.getInstance();
         mFirebaseDatabase = mFirebaseInstance.getReference("users"); //get reference to user node
-
 
         /* set weights for current workout */
         mFirebaseDatabase.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
-                sqW = user.squat;
-                String squatWeight = Integer.toString(sqW);
-                txtSq.setText(squatWeight);
-
+                txtSq.setText(Integer.toString(user.squat));
+                txtOHP.setText(Integer.toString(user.ohp));
+                txtDL.setText(Integer.toString(user.dl));
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // Failed to read value
                 // Log.w(TAG, "Failed to read value.", error.toException());
-
             }
         });
-
-        mFirebaseDatabase.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                OHPW = user.ohp;
-                String ohpWeight = Integer.toString(OHPW);
-                txtOHP.setText(ohpWeight);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Failed to read value
-                // Log.w(TAG, "Failed to read value.", error.toException());
-
-            }
-        });
-
-        mFirebaseDatabase.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                DLW = user.dl;
-                String DLWeight = Integer.toString(DLW);
-                txtDL.setText(DLWeight);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Failed to read value
-                // Log.w(TAG, "Failed to read value.", error.toException());
-
-            }
-        });
-
 
         fin.setOnClickListener(new Button.OnClickListener() {
                                    public void onClick(View view){
@@ -375,7 +332,7 @@ public class WorkoutBActivity extends AppCompatActivity {
 
                 b3Click++;
 
-                if (a3Click%5 == 1) {
+                if (b3Click%5 == 1) {
                     b3.setBackground(roundFilled);
                     b3.setText("");
                 }
@@ -480,4 +437,59 @@ public class WorkoutBActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.action_bar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.actionBarSettings:
+                Intent intent = new Intent(WorkoutBActivity.this, SettingsActivity.class);
+                startActivity(intent);
+                return true;
+
+            case R.id.actionBarHome:
+                Intent intent2 = new Intent(WorkoutBActivity.this, HomeActivity.class);
+                startActivity(intent2);
+                return true;
+
+            case R.id.actionBarLogout:
+                auth.signOut();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+    public void onResume() {
+        super.onResume();
+
+         /* set weights for current workout */
+        mFirebaseDatabase.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                txtSq.setText(Integer.toString(user.squat));
+                txtOHP.setText(Integer.toString(user.ohp));
+                txtDL.setText(Integer.toString(user.dl));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Failed to read value
+                // Log.w(TAG, "Failed to read value.", error.toException());
+
+            }
+        });
+    }
+
+    
 }

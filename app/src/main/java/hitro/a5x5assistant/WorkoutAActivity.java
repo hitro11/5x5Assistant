@@ -5,6 +5,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,25 +24,19 @@ public class WorkoutAActivity extends AppCompatActivity {
 
     private static final String TAG = "WorkoutAAcivity";
 
+    private FirebaseAuth auth;
+    private FirebaseDatabase mFirebaseInstance;
+    private DatabaseReference mFirebaseDatabase;
+    private FirebaseUser user;
+    private String uid;
+
     //weight trackers
     int sqW, bpW, rowW;
 
     //click counters
-    int a1Click = 0;
-    int a2Click = 0;
-    int a3Click = 0;
-    int a4Click = 0;
-    int a5Click = 0;
-    int b1Click = 0;
-    int b2Click = 0;
-    int b3Click = 0;
-    int b4Click = 0;
-    int b5Click = 0;
-    int c1Click = 0;
-    int c2Click = 0;
-    int c3Click = 0;
-    int c4Click = 0;
-    int c5Click = 0;
+   private int a1Click = 0, a2Click = 0, a3Click = 0, a4Click = 0, a5Click = 0,
+               b1Click = 0, b2Click = 0, b3Click = 0, b4Click = 0, b5Click = 0,
+               c1Click = 0, c2Click = 0, c3Click = 0, c4Click = 0, c5Click = 0;
 
     // button inits
     Button a1, a2, a3, a4, a5, b1, b2, b3 ,b4, b5, c1, c2, c3, c4, c5, fin;
@@ -48,14 +44,6 @@ public class WorkoutAActivity extends AppCompatActivity {
     //textview inits
     TextView txtSq, txtBP, txtRow;
     Drawable roundFilled, round;
-
-    private FirebaseAuth mAuth;
-    private FirebaseDatabase mFirebaseInstance;
-    private DatabaseReference mFirebaseDatabase;
-
-    FirebaseUser user;
-    String uid;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +53,7 @@ public class WorkoutAActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //button inits
-        a1= (Button)findViewById(R.id.btnSq1);
+        a1 = (Button)findViewById(R.id.btnSq1);
         a2 = (Button)findViewById(R.id.btnSq2);
         a3 = (Button)findViewById(R.id.btnSq3);
         a4 = (Button)findViewById(R.id.btnSq4);
@@ -90,6 +78,7 @@ public class WorkoutAActivity extends AppCompatActivity {
         txtRow = (TextView)findViewById(R.id.txtRowWeight);
 
         //firebase user auth refs
+        auth = FirebaseAuth.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
 
@@ -103,10 +92,9 @@ public class WorkoutAActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
-                sqW = user.squat;
-                String squatWeight = Integer.toString(sqW);
-                txtSq.setText(squatWeight);
-
+                txtSq.setText(Integer.toString(user.squat));
+                txtBP.setText(Integer.toString(user.bench));
+                txtRow.setText(Integer.toString(user.row));
             }
 
             @Override
@@ -116,41 +104,6 @@ public class WorkoutAActivity extends AppCompatActivity {
 
             }
         });
-
-        mFirebaseDatabase.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                bpW = user.bench;
-                String benchWeight = Integer.toString(bpW);
-                txtBP.setText(benchWeight);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Failed to read value
-                // Log.w(TAG, "Failed to read value.", error.toException());
-
-            }
-        });
-
-        mFirebaseDatabase.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                rowW = user.row;
-                String rowWeight = Integer.toString(rowW);
-                txtRow.setText(rowWeight);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Failed to read value
-                // Log.w(TAG, "Failed to read value.", error.toException());
-
-            }
-        });
-
 
         fin.setOnClickListener(new Button.OnClickListener() {
                                        public void onClick(View view){
@@ -384,7 +337,7 @@ public class WorkoutAActivity extends AppCompatActivity {
 
                 b3Click++;
 
-                if (a3Click%5 == 1) {
+                if (b3Click%5 == 1) {
                     b3.setBackground(roundFilled);
                     b3.setText("");
                 }
@@ -598,6 +551,37 @@ public class WorkoutAActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.action_bar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.actionBarSettings:
+                Intent intent = new Intent(WorkoutAActivity.this, SettingsActivity.class);
+                startActivity(intent);
+                return true;
+
+            case R.id.actionBarHome:
+                Intent intent2 = new Intent(WorkoutAActivity.this, HomeActivity.class);
+                startActivity(intent2);
+                return true;
+
+            case R.id.actionBarLogout:
+                auth.signOut();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -607,7 +591,9 @@ public class WorkoutAActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
-                String squatWeight = Integer.toString(user.squat);
+                txtSq.setText(Integer.toString(user.squat));
+                txtBP.setText(Integer.toString(user.bench));
+                txtRow.setText(Integer.toString(user.row));
             }
 
             @Override
@@ -617,38 +603,6 @@ public class WorkoutAActivity extends AppCompatActivity {
 
             }
         });
-
-        mFirebaseDatabase.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                String benchWeight = Integer.toString(user.bench);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Failed to read value
-                // Log.w(TAG, "Failed to read value.", error.toException());
-
-            }
-        });
-
-        mFirebaseDatabase.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                String rowWeight = Integer.toString(user.row);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Failed to read value
-                // Log.w(TAG, "Failed to read value.", error.toException());
-
-            }
-        });
-
-
     }
 
 }

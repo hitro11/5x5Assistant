@@ -24,8 +24,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-
-
     <TextView
         android:id="@+id/txtSqWeight"
         android:layout_width="wrap_content"
@@ -36,8 +34,16 @@
         android:layout_marginLeft="90dp"
         android:textSize="24sp"
         android:textColor="@android:color/white" />
-
-
+    <TextView
+        android:id="@+id/txtUnits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/accent_material_red"
+        android:textSize="16sp"
+        android:layout_alignBottom="@+id/txtSquat"
+        android:layout_alignRight="@+id/txtSqWeight"
+        android:layout_marginLeft="10dp"
+        android:text="LB" />
 
     <LinearLayout
         android:layout_width="match_parent"

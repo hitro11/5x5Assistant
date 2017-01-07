@@ -39,7 +39,6 @@ public class RegisterActivity extends AppCompatActivity {
     private Button reg;
 
     private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
     private ProgressBar progressBar;
 
     private DatabaseReference mFirebaseDatabase;
@@ -75,12 +74,12 @@ public class RegisterActivity extends AppCompatActivity {
                 final String name = etName.getText().toString();
 
                 if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter email address", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(password)) {
-                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter password", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -95,11 +94,8 @@ public class RegisterActivity extends AppCompatActivity {
                         .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(RegisterActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
-                                //progressBar.setVisibility(View.GONE);
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
+                                Toast.makeText(RegisterActivity.this, "Successfully created new account", Toast.LENGTH_SHORT).show();
+
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(RegisterActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
@@ -107,7 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                                    final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                                     String uid, email;
-                                    uid = user.getUid().toString();
+                                    uid = user.getUid();
 
                                     //firebase database references
                                     mFirebaseInstance = FirebaseDatabase.getInstance();
@@ -128,6 +124,5 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-       // progressBar.setVisibility(View.GONE);
     }
 }

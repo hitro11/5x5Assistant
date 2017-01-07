@@ -41,7 +41,7 @@
     <string name="register">Register</string>
     <string name="pwConfirm">Confirm Password</string>
     <string name="workoutFin">Finish Workout</string>
-    <string name="lb">lb</string>
+    <string name="lb">LB</string>
     <string name="bw">Body Weight</string>
     <string name="updStats">Update Stats</string>
     <string name="day">Day: </string>
@@ -53,6 +53,10 @@
     <string name="pwResetPrompt">Enter the email address associated with your account to send
                                     the reset password instructions</string>
     <string name="pwReset">Reset Password</string>
+    <string name="pwChange">Change Password</string>
+    <string name="units">Units</string>
+    <string name="kg">KG</string>
+    <string name="workoutHeading">Workout:</string>
 
 
     <string name="title_activity_home">Home</string>

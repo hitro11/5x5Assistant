@@ -11,8 +11,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:layout_marginTop="30dp"
-    android:layout_marginBottom="30dp"
+    android:layout_marginTop="40dp"
+    android:layout_marginBottom="90dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="hitro.a5x5assistant.StatsActivity"
     tools:showIn="@layout/activity_stats">
@@ -36,6 +36,14 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
+            <TextView
+                android:id="@+id/txtUnits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/accent_material_red"
+                android:textSize="16sp"
+                android:text="LB"
+                android:layout_marginLeft="10dp"/>
     </LinearLayout>
 
     <Space
@@ -62,7 +70,16 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
+        <TextView
+            android:id="@id/txtUnits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/accent_material_red"
+            android:textSize="16sp"
+            android:text="LB"
+            android:layout_marginLeft="10dp"/>
     </LinearLayout>
+
     <Space
         android:layout_width="0dp"
         android:layout_height="1dp"
@@ -87,7 +104,15 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
-    </LinearLayout>
+        <TextView
+            android:id="@id/txtUnits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/accent_material_red"
+            android:textSize="16sp"
+            android:text="LB"
+            android:layout_marginLeft="10dp"/>
+        </LinearLayout>
 
     <Space
         android:layout_width="0dp"
@@ -113,7 +138,15 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
-    </LinearLayout>
+        <TextView
+            android:id="@id/txtUnits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/accent_material_red"
+            android:textSize="16sp"
+            android:text="LB"
+            android:layout_marginLeft="10dp"/>
+        </LinearLayout>
 
     <Space
         android:layout_width="0dp"
@@ -139,7 +172,15 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
-    </LinearLayout>
+        <TextView
+            android:id="@id/txtUnits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/accent_material_red"
+            android:textSize="16sp"
+            android:text="LB"
+            android:layout_marginLeft="10dp"/>
+        </LinearLayout>
 
     <Space
         android:layout_width="0dp"
@@ -165,7 +206,15 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
-    </LinearLayout>
+        <TextView
+            android:id="@id/txtUnits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/accent_material_red"
+            android:textSize="16sp"
+            android:text="LB"
+            android:layout_marginLeft="10dp"/>
+     </LinearLayout>
 
     <Space
         android:layout_width="0dp"

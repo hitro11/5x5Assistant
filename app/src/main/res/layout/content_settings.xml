@@ -1,115 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/content_settings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="hitro.a5x5assistant.SettingsActivity"
     tools:showIn="@layout/activity_settings">
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/chevron_right"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        card_view:cardBackgroundColor="@color/colorPrimary"
+        card_view:cardCornerRadius="10dp"
+        android:layout_marginTop="80dp"
+        card_view:cardElevation="4dp"
+        android:id="@+id/cvEmail">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:text=""
-        android:layout_width="200dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="@string/prompt_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="7dp"
+                    android:id="@+id/txtEmailPrompt"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                    android:textSize="18sp" />
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/chevron_right"
+                    android:layout_marginTop="20dp" />
+            </LinearLayout>
+            <TextView
+                android:text="test@gmail.com"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="-7dp"
+                android:id="@+id/txtEmail"
+                android:textColor="@color/background_material_red" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:id="@+id/txtEmail"
-        android:textColor="@color/background_material_red"
-        android:layout_below="@+id/textView2"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignStart="@+id/textView2" />
+        card_view:cardBackgroundColor="@color/colorPrimary"
+        card_view:cardCornerRadius="10dp"
+        android:layout_marginTop="60dp"
+        card_view:cardElevation="4dp"
+        android:id="@+id/cvPW">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="@string/pwChange"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                android:textSize="18sp" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/chevron_right"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 
-    <TextView
-        android:text="@string/pwChange"
-        android:layout_width="wrap_content"
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtEmail"
-        android:layout_marginTop="87dp"
-        android:id="@+id/textView4"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textSize="18sp" />
+        card_view:cardBackgroundColor="@color/colorPrimary"
+        card_view:cardCornerRadius="10dp"
+        android:layout_marginTop="60dp"
+        card_view:cardElevation="4dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:text="@string/units"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/chevron_right"
-        android:id="@+id/imageView3"
-        android:layout_alignBottom="@+id/textView4"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <RadioButton
-        android:text="@string/kg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnKG"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/background_material_red"
-        android:layout_alignBaseline="@+id/btnLB"
-        android:layout_alignBottom="@+id/btnLB"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="7dp"
-        android:layout_marginEnd="7dp" />
-
-    <RadioButton
-        android:text="@string/lb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnLB"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/background_material_red"
-        android:layout_alignTop="@+id/textView6"
-        android:layout_toLeftOf="@+id/btnKG"
-        android:layout_toStartOf="@+id/btnKG"
-        android:layout_marginRight="26dp"
-        android:layout_marginEnd="26dp" />
-
-    <TextView
-        android:text="@string/units"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="117dp"
-        android:id="@+id/textView6"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textSize="18sp"
-        android:layout_below="@+id/textView4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="@string/prompt_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:id="@+id/textView2"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textSize="18sp"
-        android:layout_alignParentTop="true" />
-
-    <TextView
-        android:text="@string/pwChange"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView5"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textSize="18sp"
-        android:layout_alignBaseline="@+id/textView4"
-        android:layout_alignBottom="@+id/textView4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-</RelativeLayout>
+                android:id="@+id/txtUnits"
+                android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                android:textSize="18sp" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+            <RadioButton
+                android:text="@string/kg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnKG"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/background_material_red"
+                android:layout_marginRight="7dp"
+                android:layout_marginEnd="7dp" />
+            <RadioButton
+                android:text="@string/lb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnLB"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/background_material_red"
+                android:layout_marginRight="26dp"
+                android:layout_marginEnd="26dp" />
+            </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

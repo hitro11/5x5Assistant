@@ -38,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText etName;
     private Button reg;
 
-    private FirebaseAuth mAuth;
+    private FirebaseAuth auth;
     private ProgressBar progressBar;
 
     private DatabaseReference mFirebaseDatabase;
@@ -62,13 +62,11 @@ public class RegisterActivity extends AppCompatActivity {
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
-        mAuth = FirebaseAuth.getInstance();
-
+        auth = FirebaseAuth.getInstance();
 
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String email = etEmail.getText().toString().trim();
                 String password = etPW1.getText().toString().trim();
                 final String name = etName.getText().toString();
@@ -90,7 +88,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 //progressBar.setVisibility(View.VISIBLE);
                 //create user
-                mAuth.createUserWithEmailAndPassword(email, password)
+                auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -124,5 +122,61 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = etEmail.getText().toString().trim();
+                String password = etPW1.getText().toString().trim();
+                final String name = etName.getText().toString();
+
+                if (TextUtils.isEmpty(email)) {
+                    Toast.makeText(getApplicationContext(), "Enter email address", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(password)) {
+                    Toast.makeText(getApplicationContext(), "Enter password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (password.length() < 6) {
+                    Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                //progressBar.setVisibility(View.VISIBLE);
+                //create user
+                auth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                Toast.makeText(RegisterActivity.this, "Successfully created new account", Toast.LENGTH_SHORT).show();
+
+                                if (!task.isSuccessful()) {
+                                    Toast.makeText(RegisterActivity.this, "Authentication failed." + task.getException(),
+                                            Toast.LENGTH_SHORT).show();
+                                } else {
+
+                                    final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                    String uid, email;
+                                    uid = user.getUid();
+
+                                    //firebase database references
+                                    mFirebaseInstance = FirebaseDatabase.getInstance();
+                                    mFirebaseDatabase = mFirebaseInstance.getReference("users"); //get reference to user node
+
+                                    User userObj = new User(name);
+                                    mFirebaseDatabase.child(uid).setValue(userObj);
+
+                                    startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                                    finish();
+                                }
+                            }
+                        });
+            }
+        });
+
+
     }
 }

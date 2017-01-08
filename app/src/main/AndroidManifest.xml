@@ -23,59 +23,56 @@
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home" />
-
-
         <activity
-            android:launchMode="singleTask"
             android:name=".GuideActivity"
-            android:label="@string/title_activity_guide">
-
+            android:label="@string/title_activity_guide"
+            android:launchMode="singleTask">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="hitro.a5x5assistant.HomeActivity" />
         </activity>
         <activity
-            android:launchMode="singleTask"
             android:name=".WorkoutAActivity"
-            android:label="@string/title_activity_workout_a">
+            android:label="@string/title_activity_workout_a"
+            android:launchMode="singleTask">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="hitro.a5x5assistant.HomeActivity" />
         </activity>
         <activity
-            android:launchMode="singleTask"
             android:name=".WorkoutBActivity"
-            android:label="@string/title_activity_workout_b">
+            android:label="@string/title_activity_workout_b"
+            android:launchMode="singleTask">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="hitro.a5x5assistant.HomeActivity" />
         </activity>
         <activity
-            android:launchMode="singleTask"
             android:name=".StatsActivity"
             android:label="@string/title_activity_stats"
+            android:launchMode="singleTask"
             android:parentActivityName=".HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="hitro.a5x5assistant.HomeActivity" />
         </activity>
         <activity
-            android:launchMode="singleTask"
             android:name=".WorkoutSelectActivity"
             android:label="@string/title_activity_workout_select"
+            android:launchMode="singleTask"
             android:parentActivityName=".HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="hitro.a5x5assistant.HomeActivity" />
         </activity>
         <activity
-            android:launchMode="singleTask"
             android:name=".RegisterActivity"
-            android:label="@string/title_activity_register" />
+            android:label="@string/title_activity_register"
+            android:launchMode="singleTask" />
         <activity
-            android:launchMode="singleTask"
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login">
+            android:label="@string/title_activity_login"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -83,9 +80,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:launchMode="singleTask"
             android:name=".ProgressActivity"
             android:label="@string/title_activity_progress"
+            android:launchMode="singleTask"
             android:parentActivityName=".HomeActivity"
             android:theme="@style/ThemeDark">
             <meta-data
@@ -93,9 +90,9 @@
                 android:value="hitro.a5x5assistant.HomeActivity" />
         </activity>
         <activity
-            android:launchMode="singleTask"
             android:name=".PWResetActivity"
             android:label="@string/title_activity_pwreset"
+            android:launchMode="singleTask"
             android:parentActivityName=".LoginActivity"
             android:theme="@style/ThemeDark">
             <meta-data
@@ -110,6 +107,24 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="hitro.a5x5assistant.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".ChangeEmailActivity"
+            android:label="@string/title_activity_change_email"
+            android:parentActivityName=".SettingsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="hitro.a5x5assistant.SettingsActivity" />
+        </activity>
+        <activity
+            android:name=".ChangePWActivity"
+            android:label="@string/title_activity_change_pw"
+            android:parentActivityName=".SettingsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="hitro.a5x5assistant.SettingsActivity" />
         </activity>
     </application>
 

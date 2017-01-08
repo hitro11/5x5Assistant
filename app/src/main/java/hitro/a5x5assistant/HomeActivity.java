@@ -19,6 +19,7 @@ public class HomeActivity extends AppCompatActivity {
     private Button logout, exGuide, stats, progress;
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,6 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, WorkoutSelectActivity.class);
                 startActivity(intent);
-
             }
         });
 
@@ -41,7 +41,7 @@ public class HomeActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         // instance of firebase user object
-        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user = FirebaseAuth.getInstance().getCurrentUser();
 
         //listens for a change in auth status, and redirects to login page if change detected,
         authListener = new FirebaseAuth.AuthStateListener() {
@@ -88,6 +88,55 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onResume () {
+        super.onResume();
+
+        authListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user == null) {
+                    // user auth state is changed - user is null
+                    // launch login activity
+                    startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+                    finish();
+                }
+            }
+        };
+
+        /* logic for button clicks */
+
+        progress = (Button)findViewById(R.id.btnProg);
+        progress.setOnClickListener(new Button.OnClickListener() {
+                                        public void onClick(View view){
+                                            Intent intent = new Intent(HomeActivity.this, ProgressActivity.class);
+                                            startActivity(intent);
+                                        }
+                                    }
+        );
+
+        exGuide = (Button)findViewById(R.id.btnGuide);
+        exGuide.setOnClickListener(new Button.OnClickListener() {
+                                       public void onClick(View view){
+                                           Intent intent = new Intent(HomeActivity.this, GuideActivity.class);
+                                           startActivity(intent);
+                                       }
+                                   }
+        );
+
+        stats = (Button)findViewById(R.id.btnStats);
+        stats.setOnClickListener(new Button.OnClickListener() {
+                                     public void onClick(View view){
+                                         Intent intent = new Intent(HomeActivity.this, StatsActivity.class);
+                                         startActivity(intent);
+                                     }
+                                 }
+        );
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -119,12 +168,6 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //progressBar.setVisibility(View.GONE);
-    }
 
     @Override
     public void onStart() {

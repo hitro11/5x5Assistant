@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_change_pw"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="hitro.a5x5assistant.ChangePWActivity"
+    tools:showIn="@layout/activity_change_pw">
+
+
+    <Button
+        android:text="@string/pwChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="58dp"
+        android:id="@+id/btnChangePW"
+        android:layout_below="@+id/etChangePWNew2"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:hint="@string/oldPW"
+        android:layout_marginTop="19dp"
+        android:id="@+id/etChangePWold"
+        android:textColor="@android:color/white"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:layout_marginTop="34dp"
+        android:id="@+id/etChangePWNew"
+        android:hint="@string/newPW"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/etChangePWold"
+        android:layout_alignLeft="@+id/etChangePWold"
+        android:layout_alignStart="@+id/etChangePWold" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:layout_marginTop="35dp"
+        android:id="@+id/etChangePWNew2"
+        android:hint="@string/newPW2"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/etChangePWNew"
+        android:layout_centerHorizontal="true" />
+
+    <!--<ProgressBar-->
+        <!--android:id="@+id/progressBar"-->
+        <!--android:layout_width="30dp"-->
+        <!--android:layout_height="30dp"-->
+        <!--android:layout_gravity="center|bottom"-->
+        <!--android:layout_marginBottom="105dp"-->
+        <!--android:visibility="visible"-->
+        <!--android:indeterminate="false"-->
+        <!--android:layout_centerHorizontal="true" />-->
+</RelativeLayout>

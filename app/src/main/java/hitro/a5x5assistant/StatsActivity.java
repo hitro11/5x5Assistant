@@ -136,6 +136,77 @@ public class StatsActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        /* shows current stats*/
+        firebaseDBR.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+
+                if (SettingsActivity.units == 0) {
+                    bodyweight.setText(Integer.toString(user.bodyweight));
+                    squat.setText(Integer.toString(user.squat));
+                    bench.setText(Integer.toString(user.bench));
+                    row.setText(Integer.toString(user.row));
+                    ohp.setText(Integer.toString(user.ohp));
+                    dl.setText(Integer.toString(user.dl));
+                    txtUnits.setText(R.string.lb);
+                }
+                else {
+                    bodyweight.setText(Integer.toString((int)(user.bodyweight / 2.205)));
+                    squat.setText(Integer.toString((int)(user.squat / 2.205)));
+                    bench.setText(Integer.toString((int)(user.bench / 2.205)));
+                    row.setText(Integer.toString((int)(user.row / 2.205)));
+                    ohp.setText(Integer.toString((int)(user.ohp / 2.205)));
+                    dl.setText(Integer.toString((int)(user.dl / 2.205)));
+                    txtUnits.setText(R.string.kg);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Failed to read value
+                // Log.w(TAG, "Failed to read value.", error.toException());
+
+            }
+        });
+
+        //updates stats when "Update Stats" button is pressed
+        stats.setOnClickListener(new Button.OnClickListener() {
+                                     public void onClick(View view){
+
+                                         if (SettingsActivity.units == 0) {
+                                             firebaseDBR.child(uid).child("bodyweight").setValue(Integer.parseInt(bodyweight.getText().toString()));
+                                             firebaseDBR.child(uid).child("squat").setValue(Integer.parseInt(squat.getText().toString()));
+                                             firebaseDBR.child(uid).child("bench").setValue(Integer.parseInt(bench.getText().toString()));
+                                             firebaseDBR.child(uid).child("row").setValue(Integer.parseInt(row.getText().toString()));
+                                             firebaseDBR.child(uid).child("ohp").setValue(Integer.parseInt(ohp.getText().toString()));
+                                             firebaseDBR.child(uid).child("dl").setValue(Integer.parseInt(dl.getText().toString()));
+                                         }
+
+                                         else {
+                                             firebaseDBR.child(uid).child("bodyweight").setValue(Integer.parseInt(bodyweight.getText().toString()) * 2.205);
+                                             firebaseDBR.child(uid).child("squat").setValue(Integer.parseInt(squat.getText().toString())*2.205);
+                                             firebaseDBR.child(uid).child("bench").setValue(Integer.parseInt(bench.getText().toString())*2.205);
+                                             firebaseDBR.child(uid).child("row").setValue(Integer.parseInt(row.getText().toString())*2.205);
+                                             firebaseDBR.child(uid).child("ohp").setValue(Integer.parseInt(ohp.getText().toString())*2.205);
+                                             firebaseDBR.child(uid).child("dl").setValue(Integer.parseInt(dl.getText().toString())*2.205);
+                                         }
+
+                                         //display toast
+                                         Toast.makeText(getApplicationContext(), "Stats successfully updated",
+                                                 Toast.LENGTH_SHORT).show();
+                                     }
+                                 }
+        );
+    }
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -164,48 +235,6 @@ public class StatsActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    @Override
-    public void onResume(){
-        super.onResume();
-
-        /* shows current stats*/
-
-        firebaseDBR.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-
-                if (SettingsActivity.units == 0) {
-                    bodyweight.setText(Integer.toString(user.bodyweight));
-                    squat.setText(Integer.toString(user.squat));
-                    bench.setText(Integer.toString(user.bench));
-                    row.setText(Integer.toString(user.row));
-                    ohp.setText(Integer.toString(user.ohp));
-                    dl.setText(Integer.toString(user.dl));
-                    txtUnits.setText(R.string.lb);
-                }
-                else {
-                    bodyweight.setText(Integer.toString((int)(user.bodyweight / 2.205)));
-                    squat.setText(Integer.toString((int)(user.squat / 2.205)));
-                    bench.setText(Integer.toString((int)(user.bench / 2.205)));
-                    row.setText(Integer.toString((int)(user.row / 2.205)));
-                    ohp.setText(Integer.toString((int)(user.ohp / 2.205)));
-                    dl.setText(Integer.toString((int)(user.dl / 2.205)));
-                    txtUnits.setText(R.string.kg);
-                }
-
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Failed to read value
-                // Log.w(TAG, "Failed to read value.", error.toException());
-
-            }
-        });
     }
 
 }

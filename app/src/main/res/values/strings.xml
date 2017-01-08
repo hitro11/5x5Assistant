@@ -57,18 +57,26 @@
     <string name="units">Units</string>
     <string name="kg">KG</string>
     <string name="workoutHeading">Workout:</string>
+    <string name="newEmailPrompt">Enter new email below</string>
+    <string name="newEmail">New Email</string>
+    <string name="changeEmail">Change Email</string>
+    <string name="oldPW">Old Password</string>
+    <string name="newPW">New Password</string>
+    <string name="newPW2">Confirm New Password</string>
 
 
     <string name="title_activity_home">Home</string>
     <string name="title_activity_workout_a">Workout A</string>
     <string name="title_activity_workout_b">Workout B</string>
-    <string name="title_activity_stats">Personal Stats</string>
+    <string name="title_activity_stats">Stats</string>
     <string name="title_activity_login">5x5 Assistant</string>
     <string name="title_activity_workout_select">Select Workout</string>
     <string name="title_activity_register">Register</string>
     <string name="title_activity_progress">Progress</string>
     <string name="title_activity_pwreset">Reset Password</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_change_email">Change Email</string>
+    <string name="title_activity_change_pw">Change Password</string>
 
 
 </resources>

@@ -34,6 +34,7 @@ public class ProgressActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDB;
     DatabaseReference firebaseDBR;
     ArrayList <Integer> dates;
+    RecyclerView rv;
 
 
     @Override
@@ -43,7 +44,7 @@ public class ProgressActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        RecyclerView rv = (RecyclerView)findViewById(R.id.progRV);
+        rv = (RecyclerView)findViewById(R.id.progRV);
 
         auth = FirebaseAuth.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -90,6 +91,50 @@ public class ProgressActivity extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(adapter);
     }
+
+
+    @Override
+    public void onResume () {
+        super.onResume();
+
+        firebaseDBR.orderByKey().limitToFirst(1).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                History history = dataSnapshot.getValue(History.class);
+                dates.add(history.date);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+        final FirebaseRecyclerAdapter adapter = new FirebaseRecyclerAdapter <History, ProgressHolder>
+                (History.class, R.layout.progress_card, ProgressHolder.class, firebaseDBR ) {
+            @Override
+            protected void populateViewHolder(ProgressHolder viewHolder, History model, int position) {
+
+                viewHolder.txtWorkout.setText(model.getWorkout());
+                viewHolder.txtDate.setText(Integer.toString(model.getDate() - 17128));
+
+                viewHolder.txtSquatW.setText(model.getSquat());
+                viewHolder.txtBenchW.setText(model.getBenchW());
+                viewHolder.txtRowW.setText(model.getRowW());
+                viewHolder.txtOHPW.setText(model.getOhpW());
+                viewHolder.txtDLW.setText(model.getDlW());
+
+                viewHolder.txtSquatDone.setText(model.getDoneSquat());
+                viewHolder.txtBenchDone.setText(model.getDoneBench());
+                viewHolder.txtRowDone.setText(model.getDoneRow());
+                viewHolder.txtOHPDone.setText(model.getDoneOHP());
+                viewHolder.txtDLDone.setText(model.getDoneDL());
+            }
+        };
+
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setAdapter(adapter);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

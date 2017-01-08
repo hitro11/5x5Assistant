@@ -12,38 +12,72 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="hitro.a5x5assistant.GuideActivity"
     android:orientation="vertical"
-    android:layout_gravity="center_vertical"
-    android:gravity="center"
+    android:layout_gravity="center"
     tools:showIn="@layout/activity_guide">
 
-    <Button
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="170dp" />
+
+    <TextView
         android:text="@string/squat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnSquat"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+        android:id="@+id/txtSquat"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp" />
 
-    <Button
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <TextView
         android:text="@string/bench"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnBP" />
+        android:id="@+id/txtBP"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp" />
 
-    <Button
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <TextView
         android:text="@string/rows"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnRow" />
+        android:id="@+id/txtRow"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp" />
 
-    <Button
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <TextView
         android:text="@string/OHP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnOHP" />
+        android:id="@+id/txtOHP"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp" />
 
-    <Button
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <TextView
         android:text="@string/DL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnDL" />
+        android:id="@+id/btnDL"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textSize="24sp" />
+
 </LinearLayout>

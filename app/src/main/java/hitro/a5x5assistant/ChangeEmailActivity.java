@@ -7,84 +7,83 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class PWResetActivity extends AppCompatActivity {
+public class ChangeEmailActivity extends AppCompatActivity {
 
-    private Button btnPWreset;
-    private EditText txtEmail;
     private FirebaseAuth auth;
+    private FirebaseUser user;
+    private EditText etNewEmail;
+    private Button btnEmailChange;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pwreset);
+        setContentView(R.layout.activity_change_email);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        btnPWreset = (Button)findViewById(R.id.btnPWreset);
-        txtEmail = (EditText)findViewById(R.id.txtEmail);
         auth = FirebaseAuth.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        etNewEmail = (EditText) findViewById(R.id.etNewEmail);
+        btnEmailChange = (Button) findViewById(R.id.btnChangeEmail);
 
-        btnPWreset.setOnClickListener(new View.OnClickListener() {
+        btnEmailChange.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String email = txtEmail.getText().toString().trim();
-
-                if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplication(), "Enter your registered email id", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                auth.sendPasswordResetEmail(email)
+            public void onClick(View view) {
+                user.updateEmail(etNewEmail.getText().toString().trim())
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(PWResetActivity.this, "We have sent you instructions to reset your password!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ChangeEmailActivity.this, "Email address is updated.", Toast.LENGTH_LONG).show();
                                 } else {
-                                    Toast.makeText(PWResetActivity.this, "Failed to send reset email!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ChangeEmailActivity.this, "Failed to update email!", Toast.LENGTH_LONG).show();
                                 }
                             }
                         });
-                }
-         });
+            }
+        });
+        
     }
 
     @Override
-    public void onResume () {
+    public void onResume() {
         super.onResume();
 
-        btnPWreset.setOnClickListener(new View.OnClickListener() {
+        btnEmailChange.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String email = txtEmail.getText().toString().trim();
-
-                if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplication(), "Enter your registered email id", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                auth.sendPasswordResetEmail(email)
+            public void onClick(View view) {
+                user.updateEmail(etNewEmail.getText().toString().trim())
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(PWResetActivity.this, "We have sent you instructions to reset your password!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ChangeEmailActivity.this, "Email address is updated.", Toast.LENGTH_LONG).show();
                                 } else {
-                                    Toast.makeText(PWResetActivity.this, "Failed to send reset email!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ChangeEmailActivity.this, "Failed to update email!", Toast.LENGTH_LONG).show();
                                 }
                             }
                         });
@@ -105,12 +104,12 @@ public class PWResetActivity extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.actionBarSettings:
-                Intent intent = new Intent(PWResetActivity.this, SettingsActivity.class);
+                Intent intent = new Intent(ChangeEmailActivity.this, SettingsActivity.class);
                 startActivity(intent);
                 return true;
 
             case R.id.actionBarHome:
-                Intent intent2 = new Intent(PWResetActivity.this, HomeActivity.class);
+                Intent intent2 = new Intent(ChangeEmailActivity.this, HomeActivity.class);
                 startActivity(intent2);
                 return true;
 
@@ -122,4 +121,5 @@ public class PWResetActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
 }

@@ -4,9 +4,11 @@ package hitro.a5x5assistant;
  * Created by rohit on 11/4/2016.
  */
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -15,7 +17,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +32,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -44,8 +44,8 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseUser user;
     private LoginButton btnFbLogin;
-    private Button btnLogin, btnReg;
-    private TextView txtForgotPW;
+    private Button btnLogin;
+    private TextView txtForgotPW, txtSignUp;
     private CallbackManager callbackManager;
     private FirebaseAuth.AuthStateListener authStateListener;
 
@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         btnFbLogin = (LoginButton) findViewById(R.id.btnFbLogin);
         callbackManager = CallbackManager.Factory.create();
         btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnReg = (Button) findViewById(R.id.btnRegister);
+        txtSignUp = (TextView)findViewById(R.id.txtSignUp);
         txtForgotPW = (TextView) findViewById(R.id.txtForgotPW);
         emailET = (EditText) findViewById(R.id.etEmail);
         pwET = (EditText) findViewById(R.id.etPW);
@@ -101,9 +101,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
         //onclick for register button
-        btnReg.setOnClickListener(new View.OnClickListener() {
+        txtSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
@@ -114,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
         txtForgotPW.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, PWResetActivity.class));
+                startActivity(new Intent(LoginActivity.this, ResetPWActivity.class));
                 finish();
             }
         });
@@ -164,6 +163,21 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setMessage("Are you sure you want to exit?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finishAffinity();
+                        System.exit(0);
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
 
     @Override

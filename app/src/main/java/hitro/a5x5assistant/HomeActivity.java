@@ -1,10 +1,12 @@
 package hitro.a5x5assistant;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -25,7 +27,7 @@ import android.content.pm.Signature;
 import android.util.Base64;
 
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends BaseActivity {
 
     private Button logout, exGuide, stats, progress;
     private FirebaseAuth.AuthStateListener authListener;
@@ -168,39 +170,6 @@ public class HomeActivity extends AppCompatActivity {
         );
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.action_bar, menu);
-        return true;
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(final MenuItem item) {
-        switch (item.getItemId()) {
-
-            case R.id.actionBarHome:
-                Intent intent2 = new Intent(HomeActivity.this, HomeActivity.class);
-                startActivity(intent2);
-                return true;
-
-            case R.id.actionBarSettings:
-                Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
-                startActivity(intent);
-                return true;
-
-            case R.id.actionBarLogout:
-                auth.signOut();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-
     @Override
     public void onStart() {
         super.onStart();
@@ -214,4 +183,20 @@ public class HomeActivity extends AppCompatActivity {
             auth.removeAuthStateListener(authListener);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setMessage("Are you sure you want to exit?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finishAffinity();
+                        System.exit(0);
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
+
 }

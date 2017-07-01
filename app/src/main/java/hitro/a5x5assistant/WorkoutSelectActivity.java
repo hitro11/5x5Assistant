@@ -13,7 +13,7 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class WorkoutSelectActivity extends AppCompatActivity {
+public class WorkoutSelectActivity extends BaseActivity {
 
     Button workoutA, workoutB;
     private FirebaseAuth auth;
@@ -48,22 +48,5 @@ public class WorkoutSelectActivity extends AppCompatActivity {
     public void onResume () {
         super.onResume();
 
-        workoutA = (Button)findViewById(R.id.button_wa);
-        workoutA.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View view){
-                Intent intent = new Intent(WorkoutSelectActivity.this, WorkoutAActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        workoutB = (Button)findViewById(R.id.button_wb);
-        workoutB.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View view){
-                Intent intent = new Intent(WorkoutSelectActivity.this, WorkoutBActivity.class);
-                startActivity(intent);
-            }
-        });
     }
-
-
 }

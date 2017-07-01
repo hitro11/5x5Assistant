@@ -9,4 +9,5 @@
     <color name="accent_material_red">#ff5252</color>
     <color name="background_material_red">#efebe9</color>
     <color name="foreground_material_dark">#ffffff</color>
+    <color name="fb">#3b5998</color>
 </resources>

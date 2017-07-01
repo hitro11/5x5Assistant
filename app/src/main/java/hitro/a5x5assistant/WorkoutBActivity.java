@@ -28,7 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class WorkoutBActivity extends AppCompatActivity {
+public class WorkoutBActivity extends BaseActivity {
 
     private static final String TAG = "WorkoutBAcivity";
 
@@ -834,37 +834,5 @@ public class WorkoutBActivity extends AppCompatActivity {
                     c1.setText("4");
             }
         });
-    }
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.action_bar, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(final MenuItem item) {
-        switch (item.getItemId()) {
-
-            case R.id.actionBarSettings:
-                Intent intent = new Intent(WorkoutBActivity.this, SettingsActivity.class);
-                startActivity(intent);
-                return true;
-
-            case R.id.actionBarHome:
-                Intent intent2 = new Intent(WorkoutBActivity.this, HomeActivity.class);
-                startActivity(intent2);
-                return true;
-
-            case R.id.actionBarLogout:
-                auth.signOut();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 }

@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="play-services-analytics-impl-10.0.1">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/10.0.1/res" />
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/10.0.1/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/077319f088c2bfaf51c977cd3a639418c2387b03/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/077319f088c2bfaf51c977cd3a639418c2387b03/output/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

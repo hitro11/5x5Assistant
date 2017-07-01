@@ -25,9 +25,7 @@ public class WorkoutAActivity extends AppCompatActivity {
     private static final String TAG = "WorkoutAAcivity";
 
     private FirebaseAuth auth;
-    private FirebaseDatabase mFirebaseInstance;
     private DatabaseReference mFirebaseDatabase;
-    private FirebaseUser user;
     private String uid;
 
     //weight trackers
@@ -79,11 +77,11 @@ public class WorkoutAActivity extends AppCompatActivity {
 
         //firebase user auth refs
         auth = FirebaseAuth.getInstance();
-        user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
 
         //firebase database ref
-        mFirebaseInstance = FirebaseDatabase.getInstance();
+        FirebaseDatabase mFirebaseInstance = FirebaseDatabase.getInstance();
         mFirebaseDatabase = mFirebaseInstance.getReference("users"); //get reference to user node
 
 
@@ -99,9 +97,9 @@ public class WorkoutAActivity extends AppCompatActivity {
                     txtRow.setText(Integer.toString(user.row));
                 }
                 else {
-                    txtSq.setText(Integer.toString((int)(user.squat / 2.205)));
-                    txtBP.setText(Integer.toString((int)(user.bench / 2.205)));
-                    txtRow.setText(Integer.toString((int)(user.row / 2.205)));
+                    txtSq.setText(Integer.toString((int)(user.squat/2 - user.squat/20)));
+                    txtBP.setText(Integer.toString((int)(user.bench/2 - user.bench/20)));
+                    txtRow.setText(Integer.toString((int)(user.row/2 - user.row/20)));
                 }
             }
 
@@ -125,7 +123,7 @@ public class WorkoutAActivity extends AppCompatActivity {
                                                    mFirebaseDatabase.child(uid).child("squat").setValue(sqW + 5);
                                                }
                                                else {
-                                                   mFirebaseDatabase.child(uid).child("squat").setValue((sqW * 2.205) + (5*2.205));
+                                                   mFirebaseDatabase.child(uid).child("squat").setValue(Math.round(sqW/2 - (sqW/20)));
                                                }
                                            }
 
@@ -137,7 +135,7 @@ public class WorkoutAActivity extends AppCompatActivity {
                                                    mFirebaseDatabase.child(uid).child("bench").setValue(sqW + 5);
                                                }
                                                else {
-                                                   mFirebaseDatabase.child(uid).child("bench").setValue((sqW * 2.205) + (5*2.205));
+                                                   mFirebaseDatabase.child(uid).child("bench").setValue(Math.round(bpW/2 - (bpW/20)));
                                                }
                                            }
 
@@ -149,7 +147,7 @@ public class WorkoutAActivity extends AppCompatActivity {
                                                    mFirebaseDatabase.child(uid).child("row").setValue(sqW + 5);
                                                }
                                                else {
-                                                   mFirebaseDatabase.child(uid).child("row").setValue((sqW * 2.205) + (5*2.205));
+                                                   mFirebaseDatabase.child(uid).child("row").setValue(Math.round(rowW/2 - (rowW/20)));
                                                }
                                            }
 

@@ -102,9 +102,9 @@ public class WorkoutBActivity extends AppCompatActivity {
                     txtDL.setText(Integer.toString(user.dl));
                 }
                 else {
-                    txtSq.setText(Integer.toString((int)(user.squat / 2.205)));
-                    txtOHP.setText(Integer.toString((int)(user.ohp / 2.205)));
-                    txtDL.setText(Integer.toString((int)(user.dl / 2.205)));
+                    txtSq.setText(Integer.toString((int)(user.squat/2 - user.squat/20)));
+                    txtOHP.setText(Integer.toString((int)(user.ohp/2 - user.ohp/20)));
+                    txtDL.setText(Integer.toString((int)(user.dl/2 - user.dl/20)));
                 }
             }
 
@@ -127,7 +127,7 @@ public class WorkoutBActivity extends AppCompatActivity {
                                                mFirebaseDatabase.child(uid).child("squat").setValue(sqW + 5);
                                            }
                                            else {
-                                               mFirebaseDatabase.child(uid).child("squat").setValue((sqW * 2.205) + (5*2.205));
+                                               mFirebaseDatabase.child(uid).child("squat").setValue(Math.round(sqW/2 - (sqW/20)));
                                            }
                                        }
 
@@ -139,7 +139,7 @@ public class WorkoutBActivity extends AppCompatActivity {
                                                mFirebaseDatabase.child(uid).child("ohp").setValue(sqW + 5);
                                            }
                                            else {
-                                               mFirebaseDatabase.child(uid).child("ohp").setValue((sqW * 2.205) + (5*2.205));
+                                               mFirebaseDatabase.child(uid).child("ohp").setValue(Math.round(OHPW/2 - (OHPW/20)));
                                            }
                                        }
 
@@ -149,7 +149,7 @@ public class WorkoutBActivity extends AppCompatActivity {
                                                mFirebaseDatabase.child(uid).child("dl").setValue(sqW + 5);
                                            }
                                            else {
-                                               mFirebaseDatabase.child(uid).child("dl").setValue((sqW * 2.205) + (5*2.205));
+                                               mFirebaseDatabase.child(uid).child("dl").setValue(Math.round(DLW/2 - (DLW/20)));
                                            }
                                        }
 

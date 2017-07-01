@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">5x5 Assistant</string>
     <string name="facebook_app_id">183927645393936</string>
+    <string name="fb_login_protocol_scheme">fb183927645393936</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -44,8 +45,10 @@
     <string name="lb">LB</string>
     <string name="bw">Body Weight</string>
     <string name="updStats">Update Stats</string>
-    <string name="day">Day: </string>
-    <string name="workoutProg">Workout: </string>
+    <string name="day">DAY </string>
+    <string name="workoutProg">WORKOUT </string>
+    <string name="weightProg">WEIGHT</string>
+    <string name="unitsProg">(LB)</string>
     <string name="settings">Settings</string>
     <string name="home">Home</string>
     <string name="logout">Log Out</string>

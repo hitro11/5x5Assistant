@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/accent_material_red"
-                android:text="@string/workoutHeading"/>
+                android:text="@string/workoutProg"/>
             <Space
                 android:layout_width="3dp"
                 android:layout_height="1dp">
@@ -81,21 +81,18 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="@string/squat"
                 android:textColor="@android:color/white"/>
             <Space
-                android:layout_width="1dp"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_width="50dp"
+                android:layout_height="0dp">
             </Space>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtSquatW"
-                android:layout_marginStart="43dp"
-                android:layout_marginLeft="43dp"
                 android:text="90"
                 android:textColor="@android:color/white"/>
             <Space
@@ -124,18 +121,19 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="@string/bench"
                 android:textColor="@android:color/white"/>
-
-
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="0dp">
+            </Space>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtBenchW"
                 android:text="90"
-                android:layout_marginLeft="130dp"
                 android:textColor="@android:color/white"/>
 
             <Space
@@ -164,21 +162,18 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="@string/rows"
                 android:textColor="@android:color/white"/>
             <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" >
+                android:layout_width="50dp"
+                android:layout_height="0dp">
             </Space>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtRowW"
-                android:layout_marginStart="6dp"
-                android:layout_marginLeft="6dp"
                 android:text="90"
                 android:textColor="@android:color/white"/>
             <Space
@@ -206,22 +201,19 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="@string/OHP"
                 android:textColor="@android:color/white"/>
             <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" >
+                android:layout_width="50dp"
+                android:layout_height="0dp">
             </Space>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtOHPW"
                 android:text="90"
-                android:layout_marginStart="-19dp"
-                android:layout_marginLeft="-19dp"
                 android:textColor="@android:color/white"/>
             <Space
                 android:layout_width="0dp"
@@ -248,22 +240,19 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="@string/DL"
                 android:textColor="@android:color/white"/>
             <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" >
+                android:layout_width="50dp"
+                android:layout_height="0dp">
             </Space>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtDLW"
                 android:text="90"
-                android:layout_marginStart="31dp"
-                android:layout_marginLeft="31dp"
                 android:textColor="@android:color/white"/>
             <Space
                 android:layout_width="0dp"

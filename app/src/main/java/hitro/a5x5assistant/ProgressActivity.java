@@ -158,7 +158,7 @@ public class ProgressActivity extends AppCompatActivity {
                 return true;
 
             case R.id.actionBarLogout:
-                auth.signOut();
+                FirebaseAuth.getInstance().signOut();
                 return true;
 
             default:

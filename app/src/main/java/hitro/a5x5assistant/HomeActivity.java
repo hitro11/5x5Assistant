@@ -1,6 +1,7 @@
 package hitro.a5x5assistant;
 
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +15,16 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+
+import android.util.Log;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.util.Base64;
+
+
 public class HomeActivity extends AppCompatActivity {
 
     private Button logout, exGuide, stats, progress;
@@ -23,6 +34,27 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //generates dev hash key
+        /*
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    getPackageName(),
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        }
+        catch (PackageManager.NameNotFoundException e) {
+
+        }
+        catch (NoSuchAlgorithmException e) {
+
+        }
+        */
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

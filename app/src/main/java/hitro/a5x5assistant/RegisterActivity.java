@@ -39,7 +39,6 @@ public class RegisterActivity extends AppCompatActivity {
     private Button reg;
 
     private FirebaseAuth auth;
-    private ProgressBar progressBar;
 
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
@@ -59,9 +58,6 @@ public class RegisterActivity extends AppCompatActivity {
         etPW2.setGravity(Gravity.CENTER);
         etName.setGravity(Gravity.CENTER);
         reg = (Button) findViewById(R.id.btnRegister);
-
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
         auth = FirebaseAuth.getInstance();
 
         reg.setOnClickListener(new View.OnClickListener() {
@@ -107,8 +103,8 @@ public class RegisterActivity extends AppCompatActivity {
                                     mFirebaseInstance = FirebaseDatabase.getInstance();
                                     mFirebaseDatabase = mFirebaseInstance.getReference("users"); //get reference to user node
 
-                                    User userObj = new User(name);
-                                    mFirebaseDatabase.child(uid).setValue(userObj);
+                                    //Profile userObj = new Profile(name);
+                                  //  mFirebaseDatabase.child(uid).setValue(userObj);
 
                                     startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                                     finish();
@@ -166,8 +162,8 @@ public class RegisterActivity extends AppCompatActivity {
                                     mFirebaseInstance = FirebaseDatabase.getInstance();
                                     mFirebaseDatabase = mFirebaseInstance.getReference("users"); //get reference to user node
 
-                                    User userObj = new User(name);
-                                    mFirebaseDatabase.child(uid).setValue(userObj);
+                                  //  User userObj = new User(name);
+                                    //mFirebaseDatabase.child(uid).setValue(userObj);
 
                                     startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                                     finish();

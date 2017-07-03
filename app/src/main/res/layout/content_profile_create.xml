@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:padding="15dp"
+    android:layout_marginTop="20dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="hitro.a5x5assistant.ProfileCreateActivity"
+    tools:showIn="@layout/activity_profile_create">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/welcome"
+        android:textColor="@color/background_material_red"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome2"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/background_material_red"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:padding="15dp">
+
+        <EditText
+            android:id="@+id/etProfName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/namePrompt"
+            android:textSize="18sp"
+            android:layout_marginBottom="15dp"
+            android:padding="5dp"
+            android:background="@drawable/textbox"/>
+
+        <EditText
+            android:id="@+id/etProfBodyweight"
+            android:layout_width="300dp"
+            android:inputType="number"
+            android:layout_height="wrap_content"
+            android:hint="@string/bwPrompt"
+            android:textSize="18sp"
+            android:layout_marginBottom="15dp"
+            android:padding="5dp"
+            android:background="@drawable/textbox"/>
+
+        <EditText
+            android:id="@+id/etProfSquat"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/squatPrompt"
+            android:inputType="number"
+            android:textSize="18sp"
+            android:padding="5dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/textbox"/>
+
+        <EditText
+            android:id="@+id/etProfBench"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/benchPrompt"
+            android:inputType="number"
+            android:textSize="18sp"
+            android:layout_marginBottom="15dp"
+            android:padding="5dp"
+            android:background="@drawable/textbox"/>
+
+        <EditText
+            android:id="@+id/etProfRow"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/rowPrompt"
+            android:inputType="number"
+            android:textSize="18sp"
+            android:layout_marginBottom="15dp"
+            android:padding="5dp"
+            android:background="@drawable/textbox"/>
+
+        <EditText
+            android:id="@+id/etProfOHP"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/ohpPrompt"
+            android:textSize="18sp"
+            android:inputType="number"
+            android:layout_marginBottom="15dp"
+            android:padding="5dp"
+            android:background="@drawable/textbox"/>
+
+        <EditText
+            android:id="@+id/etProfDL"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/dlPrompt"
+            android:padding="5dp"
+            android:inputType="number"
+            android:textSize="18sp"
+            android:background="@drawable/textbox"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnCreateProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/createProfile"
+        android:layout_marginTop="5dp"/>
+
+
+
+</LinearLayout>

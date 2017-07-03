@@ -6,11 +6,30 @@ package hitro.a5x5assistant;
 
 public class History {
 
-   public String workout, doneSquat, doneBench, doneRow, doneOHP, doneDL;
-   public int date, squat, bench, row, ohp, dl;
+    String date, workout, squat, bench, row, ohp, dl;
+    boolean doneSquat, doneBench, doneRow, doneOHP, doneDL;
 
-    public History () {
 
+    public History() {
+
+    }
+
+    public History(String date, String workout, String squat, String bench, String row, String ohp,
+                   String dl, boolean doneSquat, boolean doneBench, boolean doneRow, boolean doneOHP,
+                   boolean doneDL ) {
+
+        this.date = date;
+        this.workout = workout;
+        this.squat = squat;
+        this.bench = bench;
+        this.row = row;
+        this.ohp = ohp;
+        this.dl = dl;
+        this.doneSquat = doneSquat;
+        this.doneBench = doneBench;
+        this.doneRow = doneRow;
+        this.doneOHP = doneOHP;
+        this.doneDL = doneDL;
     }
 
     /* getters */
@@ -18,54 +37,74 @@ public class History {
     String getWorkout() {
         return this.workout;
     }
-    int getDate() {
+
+    String getDate() {
         return this.date;
     }
 
-    String getSquat() { return Integer.toString(this.squat);  }
-
-    String getBenchW() {
-        if (this.bench == 0) return "-";
-        else return Integer.toString(this.bench);
+    String getSquat() {
+        return this.squat;
     }
 
-    String getRowW() {
-        if (this.row == 0) return "-";
-        else return Integer.toString(this.row);
+    String getBench() {
+        if (this.bench.equals(null)){
+            return "-";
+        }
+        else{
+            return this.bench;
+        }
     }
 
-    String getOhpW() {
-        if (this.ohp == 0) return "-";
-        else return Integer.toString(this.ohp);
+    String getRow() {
+        if (this.row.equals(null)){
+            return "-";
+        }
+        else{
+            return this.row;
+        }
     }
 
-    String getDlW() {
-        if (this.dl == 0) return "-";
-        else return Integer.toString(this.dl);
+    String getOhp() {
+        if (this.ohp.equals(null)){
+            return "-";
+        }
+        else{
+            return this.ohp;
+        }
+    }
+
+    String getDl() {
+        if (this.dl.equals(null)){
+            return "-";
+        }
+        else{
+            return this.dl;
+        }
     }
 
     String getDoneSquat() {
-        if (doneSquat == null) return "-";
-        else return doneSquat;
+        if (!doneSquat) return "-";
+        else return "Completed";
     }
 
     String getDoneBench() {
-        if (doneBench == null) return "-";
-        else return doneBench;
+        if (!doneBench) return "-";
+        else return "Completed";
     }
 
     String getDoneRow() {
-        if (doneRow == null) return "-";
-        else return doneRow;
+        if (!doneRow) return "-";
+        else return "Completed";
     }
 
     String getDoneOHP() {
-        if (doneOHP == null) return "-";
-        else return doneOHP;
+        if (!doneOHP) return "-";
+        else return "Completed";
     }
 
     String getDoneDL() {
-        if (doneDL == null) return "-";
-        else return doneDL;
+        if (!doneDL) return "-";
+        else return "Completed";
     }
+
 }

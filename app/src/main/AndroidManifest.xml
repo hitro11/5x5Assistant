@@ -142,7 +142,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="hitro.a5x5assistant.SettingsActivity" />
         </activity>
-        <activity android:name=".BaseActivity"></activity>
+        <activity android:name=".BaseActivity" />
+        <activity
+            android:name=".ProfileCreateActivity"
+            android:label="@string/title_activity_profile_create"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

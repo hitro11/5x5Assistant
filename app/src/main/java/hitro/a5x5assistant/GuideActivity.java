@@ -11,9 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class GuideActivity extends AppCompatActivity {
-
-    private TextView sq, bp, row, ohp, dl;
+public class GuideActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +21,11 @@ public class GuideActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //button inits
-        sq = (TextView) findViewById(R.id.txtSquat);
-        bp = (TextView) findViewById(R.id.txtBench);
-        row = (TextView) findViewById(R.id.txtRow);
-        ohp = (TextView) findViewById(R.id.txtOHP);
-        dl = (TextView) findViewById(R.id.txtDL);
+        TextView sq = (TextView) findViewById(R.id.txtSquat);
+        TextView bp = (TextView) findViewById(R.id.txtBench);
+        TextView row = (TextView) findViewById(R.id.txtRow);
+        TextView ohp = (TextView) findViewById(R.id.txtOHP);
+        TextView dl = (TextView) findViewById(R.id.txtDL);
 
 
         sq.setOnClickListener(new View.OnClickListener() {
@@ -79,51 +77,6 @@ public class GuideActivity extends AppCompatActivity {
     @Override
     public void onResume () {
         super.onResume();
-
-        sq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                Uri uri = Uri.parse("http://www.exrx.net/WeightExercises/Quadriceps/BBSquat.html");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-        });
-
-        bp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                Uri uri = Uri.parse("http://www.exrx.net/WeightExercises/PectoralSternal/BBBenchPress.html");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-        });
-
-        row.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                Uri uri = Uri.parse("http://www.exrx.net/WeightExercises/BackGeneral/BBBentOverRow.html");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-        });
-
-        ohp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                Uri uri = Uri.parse("http://www.exrx.net/WeightExercises/DeltoidAnterior/BBMilitaryPress.html");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-        });
-
-        dl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                Uri uri = Uri.parse("http://www.exrx.net/WeightExercises/ErectorSpinae/BBDeadlift.html");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-        });
     }
 
 }

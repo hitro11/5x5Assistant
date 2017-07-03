@@ -30,11 +30,17 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.gms.vision.text.Text;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -43,11 +49,9 @@ public class LoginActivity extends AppCompatActivity {
     private EditText emailET, pwET;
     private FirebaseAuth auth;
     private FirebaseUser user;
-    private LoginButton btnFbLogin;
-    private Button btnLogin;
-    private TextView txtForgotPW, txtSignUp;
+    private DatabaseReference dbProfiles;
+    private String uid;
     private CallbackManager callbackManager;
-    private FirebaseAuth.AuthStateListener authStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,28 +63,27 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // references
-        btnFbLogin = (LoginButton) findViewById(R.id.btnFbLogin);
+        LoginButton btnFbLogin = (LoginButton) findViewById(R.id.btnFbLogin);
+        Button btnLogin = (Button) findViewById(R.id.btnLogin);
+        TextView txtSignUp = (TextView)findViewById(R.id.txtSignUp);
+        TextView txtForgotPW = (TextView) findViewById(R.id.txtForgotPW);
         callbackManager = CallbackManager.Factory.create();
-        btnLogin = (Button) findViewById(R.id.btnLogin);
-        txtSignUp = (TextView)findViewById(R.id.txtSignUp);
-        txtForgotPW = (TextView) findViewById(R.id.txtForgotPW);
         emailET = (EditText) findViewById(R.id.etEmail);
         pwET = (EditText) findViewById(R.id.etPW);
         emailET.setGravity(Gravity.CENTER);
         pwET.setGravity(Gravity.CENTER);
+        user = FirebaseAuth.getInstance().getCurrentUser();
 
 
         // redirects to home activity if user is already authorized
-        authStateListener = new FirebaseAuth.AuthStateListener() {
+        FirebaseAuth.AuthStateListener authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-                    finish();
-                }
+                signInUser(user);
             }
         };
+
+        signInUser(user);
 
         // set permissions + Callback registration
         btnFbLogin.setReadPermissions("email", "public_profile");
@@ -135,7 +138,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 //authenticate user
-
                 auth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -180,6 +182,13 @@ public class LoginActivity extends AppCompatActivity {
                 .show();
     }
 
+    public void signInUser(FirebaseUser user) {
+        if (user != null) {
+            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+            finish();
+        }
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -202,18 +211,40 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithCredential:success");
+                            Log.i(TAG, "signInWithCredential:success");
                             FirebaseUser user = auth.getCurrentUser();
-                            //updateUI(user);
-                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                            startActivity(intent);
-                            finish();
+                            uid = user.getUid();
+                            Log.i(TAG, uid);
+
+                            dbProfiles = FirebaseDatabase.getInstance().getReference("profiles").child(uid);
+                            dbProfiles.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    if (dataSnapshot.exists()) {
+                                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    } else {
+                                        // creates profile uid and redirects to profile creation activity
+                                        Profile profile = new Profile();
+                                        dbProfiles.child(uid).setValue(profile);
+                                        Intent intent = new Intent(LoginActivity.this, ProfileCreateActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+                                    // Failed to read value
+                                    Log.i(TAG, "Failed to read value.");
+                                }
+                            });
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            Log.d(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
                         }
                     }
                 });

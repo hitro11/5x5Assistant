@@ -60,7 +60,7 @@ public class ProgressActivity extends BaseActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                     history = dataSnapshot.getValue(History.class);
                     if (history != null) {
-                        dates.add(history.date);
+                       // dates.add(history.date);
                     }
             }
 
@@ -76,13 +76,13 @@ public class ProgressActivity extends BaseActivity {
 
                 if (history != null) {
                     viewHolder.txtWorkout.setText(model.getWorkout());
-                    viewHolder.txtDate.setText(Integer.toString(model.getDate() - 17128));
+                    //viewHolder.txtDate.setText(Integer.toString(model.getDate() - 17128));
 
                     viewHolder.txtSquatW.setText(model.getSquat());
-                    viewHolder.txtBenchW.setText(model.getBenchW());
-                    viewHolder.txtRowW.setText(model.getRowW());
-                    viewHolder.txtOHPW.setText(model.getOhpW());
-                    viewHolder.txtDLW.setText(model.getDlW());
+                    viewHolder.txtBenchW.setText(model.getBench());
+                    viewHolder.txtRowW.setText(model.getRow());
+                    viewHolder.txtOHPW.setText(model.getOhp());
+                    viewHolder.txtDLW.setText(model.getDl());
 
                     viewHolder.txtSquatDone.setText(model.getDoneSquat());
                     viewHolder.txtBenchDone.setText(model.getDoneBench());

@@ -15,12 +15,24 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <string name="loginFail">Login Failed</string>
     <string name="minPW">Password must be at least 5 characters long</string>
     <string name="signout">Sign Out</string>
+    <string name="welcome">Welcome to 5x5 Assistant!</string>
+    <string name="welcome2">Please enter the information below to create your profile</string>
+
+    <!-- Stat prompts -->
+    <string name="bwPrompt">Bodyweight (lb)</string>
+    <string name="squatPrompt">Squat (lb)</string>
+    <string name="benchPrompt">Bench Press (lb)</string>
+    <string name="rowPrompt">Barbell row (lb)</string>
+    <string name="ohpPrompt">Overhead press (lb)</string>
+    <string name="dlPrompt">Deadlift (lb)</string>
+    <string name="createProfile">Create Profile</string>
+
+
+
 
 
     <string name="action_settings">Settings</string>
@@ -83,6 +95,7 @@
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_change_email">Change Email</string>
     <string name="title_activity_change_pw">Change Password</string>
+    <string name="title_activity_profile_create">ProfileCreateActivity</string>
 
 
 </resources>

@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:paddingLeft="10dp"
+            android:paddingStart="10dp"
             android:text="@string/title_activity_login"
             android:textColor="@color/background_material_red"/>
     </LinearLayout>
@@ -113,15 +114,22 @@
             android:layout_height="1dp"/>
     </LinearLayout>
 
-    <!--
+
     <com.facebook.login.widget.LoginButton
         android:id="@+id/btnFbLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:width="200dp"/>
-        -->
+        android:paddingLeft="80dp"
+        android:paddingStart="80dp"
+        android:paddingRight="40dp"
+        android:paddingEnd="40dp"
+        android:textSize="15sp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layout_marginTop="10dp"/>
+
+    <!--
     <Button
         android:id="@+id/btnFbLogin"
         android:layout_width="match_parent"
@@ -136,6 +144,7 @@
         android:drawableLeft="@drawable/com_facebook_button_icon"
         android:drawableStart="@drawable/com_facebook_button_icon"
         />
+        -->
 
     <View
         android:background="#ffffff"

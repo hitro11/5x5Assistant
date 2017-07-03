@@ -23,9 +23,10 @@
         android:text="@string/squat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
         android:id="@+id/txtSquat"
         android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="24sp" />
 
     <android.support.v4.widget.Space
@@ -36,9 +37,10 @@
         android:text="@string/bench"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtBP"
+        android:id="@+id/txtBench"
+        android:textColor="@android:color/white"
         android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="24sp" />
 
     <android.support.v4.widget.Space
@@ -49,9 +51,10 @@
         android:text="@string/rows"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
         android:id="@+id/txtRow"
         android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="24sp" />
 
     <android.support.v4.widget.Space
@@ -64,7 +67,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/txtOHP"
         android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textColor="@android:color/white"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="24sp" />
 
     <android.support.v4.widget.Space
@@ -75,9 +79,9 @@
         android:text="@string/DL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnDL"
+        android:textColor="@android:color/white"
+        android:id="@+id/txtDL"
         android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="24sp" />
-
 </LinearLayout>

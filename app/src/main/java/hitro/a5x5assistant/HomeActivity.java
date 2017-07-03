@@ -31,7 +31,6 @@ public class HomeActivity extends BaseActivity {
 
     private Button logout, exGuide, stats, progress;
     private FirebaseAuth.AuthStateListener authListener;
-    private FirebaseAuth auth;
     private FirebaseUser user;
 
     @Override
@@ -66,30 +65,14 @@ public class HomeActivity extends BaseActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, WorkoutSelectActivity.class);
+                Intent intent = new Intent(getApplicationContext(), WorkoutSelectActivity.class);
                 startActivity(intent);
             }
         });
 
-        //get firebase auth instance
-        auth = FirebaseAuth.getInstance();
-
-        // instance of firebase user object
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-        //listens for a change in auth status, and redirects to login page if change detected,
-        authListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user == null) {
-                    // user auth state is changed - user is null
-                    // launch login activity
-                    startActivity(new Intent(HomeActivity.this, LoginActivity.class));
-                    finish();
-                }
-            }
-        };
+
 
         /* logic for button clicks */
 
@@ -139,64 +122,20 @@ public class HomeActivity extends BaseActivity {
                 }
             }
         };
-
-        /* logic for button clicks */
-
-        progress = (Button)findViewById(R.id.btnProg);
-        progress.setOnClickListener(new Button.OnClickListener() {
-                                        public void onClick(View view){
-                                            Intent intent = new Intent(HomeActivity.this, ProgressActivity.class);
-                                            startActivity(intent);
-                                        }
-                                    }
-        );
-
-        exGuide = (Button)findViewById(R.id.btnGuide);
-        exGuide.setOnClickListener(new Button.OnClickListener() {
-                                       public void onClick(View view){
-                                           Intent intent = new Intent(HomeActivity.this, GuideActivity.class);
-                                           startActivity(intent);
-                                       }
-                                   }
-        );
-
-        stats = (Button)findViewById(R.id.btnStats);
-        stats.setOnClickListener(new Button.OnClickListener() {
-                                     public void onClick(View view){
-                                         Intent intent = new Intent(HomeActivity.this, StatsActivity.class);
-                                         startActivity(intent);
-                                     }
-                                 }
-        );
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        auth.addAuthStateListener(authListener);
+       // auth.addAuthStateListener(authListener);
     }
 
     @Override
     public void onStop() {
         super.onStop();
         if (authListener != null) {
-            auth.removeAuthStateListener(authListener);
+           // auth.removeAuthStateListener(authListener);
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        new AlertDialog.Builder(this)
-                .setMessage("Are you sure you want to exit?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finishAffinity();
-                        System.exit(0);
-                    }
-                })
-                .setNegativeButton("No", null)
-                .show();
     }
 
 }

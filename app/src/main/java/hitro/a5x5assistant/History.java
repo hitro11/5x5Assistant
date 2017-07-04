@@ -6,17 +6,16 @@ package hitro.a5x5assistant;
 
 public class History {
 
-    String date, workout, squat, bench, row, ohp, dl;
-    boolean doneSquat, doneBench, doneRow, doneOHP, doneDL;
+    String date, workout;
+    double squat, bench, row, ohp, dl;
+    String doneSquat, doneBench, doneRow, doneOHP, doneDL;
 
 
     public History() {
 
     }
 
-    public History(String date, String workout, String squat, String bench, String row, String ohp,
-                   String dl, boolean doneSquat, boolean doneBench, boolean doneRow, boolean doneOHP,
-                   boolean doneDL ) {
+    public History(String date, String workout, double squat, double bench, double row, double ohp, double dl, String doneSquat, String doneBench, String doneRow, String doneOHP, String doneDL) {
 
         this.date = date;
         this.workout = workout;
@@ -34,77 +33,54 @@ public class History {
 
     /* getters */
 
-    String getWorkout() {
-        return this.workout;
+    public String getDate() {
+        return date;
     }
 
-    String getDate() {
-        return this.date;
+    public String getWorkout() {
+        return workout;
     }
 
-    String getSquat() {
-        return this.squat;
+    public double getSquat() {
+        return squat;
     }
 
-    String getBench() {
-        if (this.bench.equals(null)){
-            return "-";
-        }
-        else{
-            return this.bench;
-        }
+    public double getBench() {
+        return bench;
     }
 
-    String getRow() {
-        if (this.row.equals(null)){
-            return "-";
-        }
-        else{
-            return this.row;
-        }
+    public double getRow() {
+        return row;
     }
 
-    String getOhp() {
-        if (this.ohp.equals(null)){
-            return "-";
-        }
-        else{
-            return this.ohp;
-        }
+    public double getOhp() {
+        return ohp;
     }
 
-    String getDl() {
-        if (this.dl.equals(null)){
-            return "-";
-        }
-        else{
-            return this.dl;
-        }
+    public double getDl() {
+        return dl;
     }
 
-    String getDoneSquat() {
-        if (!doneSquat) return "-";
-        else return "Completed";
+    public String getDoneSquat() {
+        return doneSquat;
     }
 
-    String getDoneBench() {
-        if (!doneBench) return "-";
-        else return "Completed";
+    public String getDoneBench() {
+        return doneBench;
     }
 
-    String getDoneRow() {
-        if (!doneRow) return "-";
-        else return "Completed";
+    public String getDoneRow() {
+        return doneRow;
     }
 
-    String getDoneOHP() {
-        if (!doneOHP) return "-";
-        else return "Completed";
+    public String getDoneOHP() {
+        return doneOHP;
     }
 
-    String getDoneDL() {
-        if (!doneDL) return "-";
-        else return "Completed";
+    public String getDoneDL() {
+        return doneDL;
     }
+
+
 
 }

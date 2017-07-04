@@ -74,29 +74,35 @@ public class StatsActivity extends BaseActivity {
         dbProfiles.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                /*
-                User user = dataSnapshot.getValue(User.class);
+
+                Profile profile = dataSnapshot.getValue(Profile.class);
 
                 if (SettingsActivity.units == 0) {
-                    bodyweight.setText(Integer.toString(user.bodyweight));
-                    squat.setText(Integer.toString(user.squat));
-                    bench.setText(Integer.toString(user.bench));
-                    row.setText(Integer.toString(user.row));
-                    ohp.setText(Integer.toString(user.ohp));
-                    dl.setText(Integer.toString(user.dl));
+                    bodyweight.setText(String.valueOf(profile.getBodyweight()));
+                    squat.setText(String.valueOf(profile.getSquat()));
+                    bench.setText(String.valueOf(profile.getBench()));
+                    row.setText(String.valueOf(profile.getRow()));
+                    ohp.setText(String.valueOf(profile.getOhp()));
+                    dl.setText(String.valueOf(profile.getDl()));
                     txtUnits.setText(R.string.lb);
                 }
                 else {
-                    bodyweight.setText(Integer.toString((int)(user.bodyweight / 2.205)));
-                    squat.setText(Integer.toString((int)(user.squat / 2.205)));
-                    bench.setText(Integer.toString((int)(user.bench / 2.205)));
-                    row.setText(Integer.toString((int)(user.row / 2.205)));
-                    ohp.setText(Integer.toString((int)(user.ohp / 2.205)));
-                    dl.setText(Integer.toString((int)(user.dl / 2.205)));
-                    txtUnits.setText(R.string.kg);
 
+                    double bodyweightTemp = Math.floor(profile.getBodyweight()/10 - profile.getBodyweight()/20);
+                    double squatTemp = Math.floor(profile.getSquat()/10 - profile.getSquat()/20);
+                    double benchTemp = Math.floor(profile.getBench()/10 - profile.getBench()/20);
+                    double rowTemp = Math.floor(profile.getRow()/10 - profile.getRow()/20);
+                    double ohpTemp = Math.floor(profile.getOhp()/10 - profile.getOhp()/20);
+                    double dlTemp = Math.floor(profile.getDl()/10 - profile.getDl()/20);
+
+                    bodyweight.setText(String.valueOf(profile.getBodyweight()));
+                    squat.setText(String.valueOf(profile.getSquat()));
+                    bench.setText(String.valueOf(profile.getBench()));
+                    row.setText(String.valueOf(profile.getRow()));
+                    ohp.setText(String.valueOf(profile.getOhp()));
+                    dl.setText(String.valueOf(profile.getDl()));
+                    txtUnits.setText(R.string.kg);
                 }
-                */
             }
 
             @Override
@@ -111,8 +117,8 @@ public class StatsActivity extends BaseActivity {
                                    public void onClick(View view){
 
                                        if (SettingsActivity.units == 0) {
-                                           dbProfiles.child(uid).child("bodyweight").setValue(Integer.parseInt(bodyweight.getText().toString()));
-                                           dbProfiles.child(uid).child("squat").setValue(Integer.parseInt(squat.getText().toString()));
+                                           dbProfiles.child(uid).child("bodyweight").setValue(bodyweight.getText().toString());
+                                           dbProfiles.child(uid).child("squat").setValue(squat.getText().toString());
                                            dbProfiles.child(uid).child("bench").setValue(Integer.parseInt(bench.getText().toString()));
                                            dbProfiles.child(uid).child("row").setValue(Integer.parseInt(row.getText().toString()));
                                            dbProfiles.child(uid).child("ohp").setValue(Integer.parseInt(ohp.getText().toString()));

@@ -39,7 +39,7 @@ public class ProfileCreateActivity extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
-        dbProfiles = FirebaseDatabase.getInstance().getReference("profiles"); //get reference to user node
+        dbProfiles = FirebaseDatabase.getInstance().getReference("profiles").child(uid); //get reference to user node
 
         Button createProfile = (Button)findViewById(R.id.btnCreateProfile);
         etName = (EditText)findViewById(R.id.etProfName);
@@ -54,24 +54,28 @@ public class ProfileCreateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String name = etName.getText().toString().trim();
-                String bodyweight = etBodyweight.getText().toString().trim();
-                String squat = etSquat.getText().toString().trim();
-                String bench = etBench.getText().toString().trim();
-                String row = etRow.getText().toString().trim();
-                String ohp = etOHP.getText().toString().trim();
-                String dl = etDL.getText().toString().trim();
+                double bodyweight = Double.parseDouble(etBodyweight.getText().toString().trim());
+                double squat = Double.parseDouble(etSquat.getText().toString().trim());
+                double bench = Double.parseDouble(etBench.getText().toString().trim());
+                double row = Double.parseDouble(etRow.getText().toString().trim());
+                double ohp = Double.parseDouble(etOHP.getText().toString().trim());
+                double dl = Double.parseDouble(etDL.getText().toString().trim());
 
-                if (TextUtils.isEmpty(name) || TextUtils.isEmpty(name) || TextUtils.isEmpty(bodyweight)
-                        || TextUtils.isEmpty(squat) || TextUtils.isEmpty(bench) || TextUtils.isEmpty(row)
-                        || TextUtils.isEmpty(ohp) || TextUtils.isEmpty(dl)) {
+                if (TextUtils.isEmpty(name) || TextUtils.isEmpty(etBodyweight.getText().toString())
+                        || TextUtils.isEmpty(etSquat.getText().toString()) ||
+                        TextUtils.isEmpty(etBench.getText().toString()) ||
+                        TextUtils.isEmpty(etRow.getText().toString()) ||
+                        TextUtils.isEmpty(etOHP.getText().toString()) ||
+                        TextUtils.isEmpty(etDL.getText().toString())){
 
-                    Toast toast = Toast.makeText(getApplicationContext(), "Please fill out all fields", Toast.LENGTH_LONG);
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please fill out all fields",
+                            Toast.LENGTH_LONG);
                     toast.show();
 
                 } else {
                     //stores profile in profiles table
                     Profile profile = new Profile(name, bodyweight, squat, bench, row, ohp, dl);
-                    dbProfiles.child(uid).setValue(profile);
+                    dbProfiles.setValue(profile);
                     Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                     startActivity(intent);
 

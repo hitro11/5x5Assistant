@@ -8,9 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,14 +30,15 @@ import java.util.Iterator;
 
 public class ProgressActivity extends BaseActivity {
 
+    static final String TAG = "ProgressActivity";
     private FirebaseAuth auth;
     FirebaseUser user;
     String uid;
-    FirebaseDatabase firebaseDB;
-    DatabaseReference firebaseDBR;
+    DatabaseReference dbHistory;
     ArrayList <Integer> dates;
     RecyclerView rv;
     History history;
+    TextView txtNoHistory;
 
 
     @Override
@@ -51,16 +54,16 @@ public class ProgressActivity extends BaseActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
         dates = new ArrayList<>();
-        firebaseDB = FirebaseDatabase.getInstance();
-        firebaseDBR = firebaseDB.getReference("history").child(uid);
+        dbHistory = FirebaseDatabase.getInstance().getReference("history").child(uid);
+        txtNoHistory = (TextView)findViewById(R.id.txtNoHistory);
+        txtNoHistory.setVisibility(View.GONE);
 
-
-        firebaseDBR.orderByKey().limitToFirst(1).addListenerForSingleValueEvent(new ValueEventListener() {
+        dbHistory.orderByChild("date").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                     history = dataSnapshot.getValue(History.class);
-                    if (history != null) {
-                       // dates.add(history.date);
+                    if (history == null) {
+                       txtNoHistory.setVisibility(View.VISIBLE);
                     }
             }
 
@@ -69,40 +72,46 @@ public class ProgressActivity extends BaseActivity {
             }
         });
 
-        final FirebaseRecyclerAdapter adapter = new FirebaseRecyclerAdapter <History, ProgressHolder>
-                (History.class, R.layout.progress_card, ProgressHolder.class, firebaseDBR ) {
-            @Override
-            protected void populateViewHolder(ProgressHolder viewHolder, History model, int position) {
+        if (history != null) {
+            final FirebaseRecyclerAdapter adapter = new FirebaseRecyclerAdapter <History, ProgressHolder>
+                    (History.class, R.layout.progress_card, ProgressHolder.class, dbHistory ) {
+                @Override
+                protected void populateViewHolder(ProgressHolder viewHolder, History model, int position) {
 
-                if (history != null) {
                     viewHolder.txtWorkout.setText(model.getWorkout());
-                    //viewHolder.txtDate.setText(Integer.toString(model.getDate() - 17128));
+                    viewHolder.txtDate.setText(model.getDate());
 
-                    viewHolder.txtSquatW.setText(model.getSquat());
-                    viewHolder.txtBenchW.setText(model.getBench());
-                    viewHolder.txtRowW.setText(model.getRow());
-                    viewHolder.txtOHPW.setText(model.getOhp());
-                    viewHolder.txtDLW.setText(model.getDl());
+                    if (model.getWorkout().equals("A")) {
+                        viewHolder.txtSquatW.setText(String.valueOf(model.getSquat()));
+                        viewHolder.txtBenchW.setText(String.valueOf(model.getBench()));
+                        viewHolder.txtRowW.setText(String.valueOf(model.getRow()));
+                        viewHolder.txtSquatDone.setText(model.getDoneSquat());
+                        viewHolder.txtBenchDone.setText(model.getDoneBench());
+                        viewHolder.txtRowDone.setText(model.getDoneRow());
 
-                    viewHolder.txtSquatDone.setText(model.getDoneSquat());
-                    viewHolder.txtBenchDone.setText(model.getDoneBench());
-                    viewHolder.txtRowDone.setText(model.getDoneRow());
-                    viewHolder.txtOHPDone.setText(model.getDoneOHP());
-                    viewHolder.txtDLDone.setText(model.getDoneDL());
+                        viewHolder.txtOHPW.setVisibility(View.GONE);
+                        viewHolder.txtDLW.setVisibility(View.GONE);
+                        viewHolder.txtOHPDone.setVisibility(View.GONE);
+                        viewHolder.txtDLDone.setVisibility(View.GONE);
+
+                    } else {
+                        viewHolder.txtSquatW.setText(String.valueOf(model.getSquat()));
+                        viewHolder.txtOHPW.setText(String.valueOf(model.getOhp()));
+                        viewHolder.txtDLW.setText(String.valueOf(model.getRow()));
+                        viewHolder.txtSquatDone.setText(model.getDoneSquat());
+                        viewHolder.txtOHPDone.setText(model.getDoneOHP());
+                        viewHolder.txtDLDone.setText(model.getDoneDL());
+
+                        viewHolder.txtBenchW.setVisibility(View.GONE);
+                        viewHolder.txtRowW.setVisibility(View.GONE);
+                        viewHolder.txtBenchDone.setVisibility(View.GONE);
+                        viewHolder.txtOHPDone.setVisibility(View.GONE);
+                    }
                 }
-                else {
+            };
 
-                }
-            }
-        };
-
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setAdapter(adapter);
-    }
-
-
-    @Override
-    public void onResume () {
-        super.onResume();
+            rv.setLayoutManager(new LinearLayoutManager(this));
+            rv.setAdapter(adapter);
+        }
     }
 }

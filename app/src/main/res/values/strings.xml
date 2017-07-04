@@ -32,9 +32,6 @@
     <string name="createProfile">Create Profile</string>
 
 
-
-
-
     <string name="action_settings">Settings</string>
     <string name="exGuide">Excercise Guide</string>
     <string name="progress">Progress</string>
@@ -81,6 +78,7 @@
     <string name="oldPW">Old Password</string>
     <string name="newPW">New Password</string>
     <string name="newPW2">Confirm New Password</string>
+    <string name="noHistory">You have not completed any workouts yet!</string>
 
 
     <string name="title_activity_home">Home</string>
@@ -96,6 +94,9 @@
     <string name="title_activity_change_email">Change Email</string>
     <string name="title_activity_change_pw">Change Password</string>
     <string name="title_activity_profile_create">ProfileCreateActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

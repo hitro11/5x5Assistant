@@ -23,13 +23,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import static hitro.a5x5assistant.SettingsActivity.units;
+
 public class WorkoutBActivity extends BaseActivity {
 
     private static final String TAG = "WorkoutBActivity";
-    private int squatWeight, ohpWeight, dlWeight;
-    private String squatWeightNew, ohpWeightNew, dlWeightNew;
-    private boolean squatDone, ohpDone, dlDone;
-    private TextView txtSquat, txtOHP, txtDL;
+    private String name;
+    private double squatWeight, ohpWeight, dlWeight;
+    private double bodyWeight, benchWeight, rowWeight;
+    private double squatWeightNew, ohpWeightNew, dlWeightNew;
+    private String squatDone, ohpDone, dlDone;
+    private TextView txtSquat, txtOHP, txtDL, txtUnits;
     private Button a1, a2, a3, a4, a5, b1, b2, b3 ,b4, b5, c1, fin;
     private Drawable round, roundFilled;
     private FirebaseUser user;
@@ -70,42 +74,55 @@ public class WorkoutBActivity extends BaseActivity {
         txtSquat = (TextView)findViewById(R.id.txtSquatWeight);
         txtOHP = (TextView)findViewById(R.id.txtOHPweight);
         txtDL = (TextView)findViewById(R.id.txtDLweight);
+        txtUnits = (TextView)findViewById(R.id.txtUnits);
+
+        squatDone = "Not Completed";
+        ohpDone = "Not Completed";
+        dlDone = "Not Completed";
+
 
         //firebase user auth refs
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
-        dbProfile =  FirebaseDatabase.getInstance().getReference("profiles");
-        dbHistory = FirebaseDatabase.getInstance().getReference("history");
+        dbProfile =  FirebaseDatabase.getInstance().getReference("profiles").child(uid);
+        dbHistory = FirebaseDatabase.getInstance().getReference("history").child(uid);
+
+
+        /* set appropriate units */
+        if(units != 0) {
+            txtUnits.setText(R.string.kg);
+        }
 
         /* set weights for current workout */
-        dbProfile.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+        dbProfile.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 Profile profile = dataSnapshot.getValue(Profile.class); //retrieves user's profile
 
-                if (SettingsActivity.units == 0) {
-                    txtSquat.setText(profile.squat);
-                    txtOHP.setText(profile.ohp);
-                    txtDL.setText(profile.dl);
+                if (units == 0) {
+                    squatWeight = Math.floor(profile.getSquat());
+                    ohpWeight = Math.floor(profile.getOhp());
+                    dlWeight = Math.floor(profile.getDl());
 
-                    squatWeight = Integer.parseInt(txtSquat.getText().toString().trim());
-                    ohpWeight = Integer.parseInt(txtOHP.getText().toString().trim());
-                    dlWeight = Integer.parseInt(txtDL.getText().toString().trim());
+                    txtSquat.setText(String.valueOf(squatWeight));
+                    txtOHP.setText(String.valueOf(ohpWeight));
+                    txtDL.setText(String.valueOf(dlWeight));
                 }
                 else {
-                    int sqTemp = Integer.parseInt(profile.squat);
-                    int ohpTemp = Integer.parseInt(profile.ohp);
-                    int dlTemp = Integer.parseInt(profile.dl);
+                    squatWeight = Math.floor(profile.getSquat()/10 - profile.getSquat()/20);
+                    ohpWeight = Math.floor(profile.getOhp()/10 - profile.getOhp()/20);
+                    dlWeight = Math.floor(profile.getDl()/10 - profile.getDl()/20);
 
-                    txtSquat.setText(Integer.toString(sqTemp/10 - sqTemp/20));
-                    txtOHP.setText(Integer.toString(ohpTemp/10 - ohpTemp/20));
-                    txtDL.setText(Integer.toString(dlTemp/10 - dlTemp/20));
-
-                    squatWeight = Integer.parseInt(txtSquat.getText().toString().trim());
-                    ohpWeight = Integer.parseInt(txtOHP.getText().toString().trim());
-                    dlWeight = Integer.parseInt(txtDL.getText().toString().trim());
+                    txtSquat.setText(String.valueOf(squatWeight));
+                    txtOHP.setText(String.valueOf(ohpWeight));
+                    txtDL.setText(String.valueOf(dlWeight));
                 }
+
+                benchWeight = profile.getBench();
+                rowWeight = profile.getRow();
+                bodyWeight = profile.getBodyweight();
+                name = profile.getName();
             }
 
             @Override
@@ -118,58 +135,59 @@ public class WorkoutBActivity extends BaseActivity {
         fin.setOnClickListener(new Button.OnClickListener() {
                                    public void onClick(View view){
 
+                                       squatWeightNew = squatWeight;
+                                       ohpWeightNew = ohpWeight;
+                                       dlWeightNew = dlWeight;
+
                                        //check if all sets of the 3 exercises were completed successfully
+
                                        if (a1.getBackground() == roundFilled && a2.getBackground() == roundFilled &&
                                                a3.getBackground() == roundFilled && a4.getBackground() == roundFilled
                                                && a5.getBackground() == roundFilled) {
 
-                                           squatDone = true;
+                                           squatDone = "Completed";
 
-                                           if (SettingsActivity.units == 0) {
-                                               squatWeightNew = Integer.toString(squatWeight + 5);
-                                               dbProfile.child(uid).child("squat").setValue(squatWeightNew);
+                                           if (units == 0) {
+                                               squatWeightNew = squatWeight + 5;
+                                           } else {
+                                               squatWeightNew = Math.floor(squatWeight*2 + squatWeight/10 + 5);
                                            }
-                                           else {
-                                               squatWeightNew = Integer.toString(squatWeight*2 + Math.round(squatWeight/2) + 5);
-                                               dbProfile.child(uid).child("squat").setValue(squatWeightNew);                                           }
                                        }
 
                                        if (b1.getBackground() == roundFilled && b2.getBackground() == roundFilled &&
                                                b3.getBackground() == roundFilled && b4.getBackground() == roundFilled
                                                && b5.getBackground() == roundFilled) {
 
-                                           ohpDone = true;
+                                           ohpDone = "Completed";
 
-                                           if (SettingsActivity.units == 0) {
-                                               ohpWeightNew = Integer.toString(ohpWeight + 5);
-                                               dbProfile.child(uid).child("ohp").setValue(ohpWeightNew);
-                                           }
-                                           else {
-                                               ohpWeightNew = Integer.toString(ohpWeight*2 + Math.round(ohpWeight/10) + 5);
-                                               dbProfile.child(uid).child("ohp").setValue(ohpWeightNew);
+                                           if (units == 0) {
+                                               ohpWeightNew = ohpWeight + 5;
+                                           } else {
+                                               ohpWeightNew = Math.floor(ohpWeight*2 + ohpWeight/10 + 5);
                                            }
                                        }
 
                                        if (c1.getBackground() == roundFilled) {
 
-                                           dlDone = true;
+                                           dlDone = "Completed";
 
-                                           if (SettingsActivity.units == 0) {
-                                               dlWeightNew = Integer.toString(dlWeight + 5);
-                                               dbProfile.child(uid).child("dl").setValue(dlWeightNew);
-                                           }
-                                           else {
-                                               dlWeightNew = Integer.toString(dlWeight*2 + Math.round(dlWeight/10) + 5);
-                                               dbProfile.child(uid).child("dl").setValue(dlWeightNew);
+                                           if (units == 0) {
+                                               dlWeightNew = dlWeightNew + 10;
+                                           } else {
+                                               dlWeightNew = Math.floor(dlWeight*2 + dlWeight/10 + 10);
                                            }
                                        }
 
                                        // save workout to db
                                        dateFormat = new SimpleDateFormat("yyyy-MMM-dd HH:mm:ss");
                                        String date = dateFormat.format(new Date());
-                                       History history = new History("B", date, Integer.toString(squatWeight),
-                                               null, null, Integer.toString(ohpWeight), Integer.toString(dlWeight),
-                                               squatDone, false, false, ohpDone, dlDone);
+                                       History history = new History("B", date, squatWeight, 0, 0,
+                                               ohpWeight, dlWeight, squatDone, "-", "-", ohpDone, dlDone);
+                                       dbHistory.child(date).setValue(history);
+
+                                       Profile profile = new Profile(name, bodyWeight, squatWeightNew,
+                                               benchWeight, rowWeight, ohpWeightNew, dlWeightNew);
+                                       dbProfile.setValue(profile);
 
                                        //redirects to home activity
                                        Intent intent = new Intent(WorkoutBActivity.this, HomeActivity.class);
@@ -178,133 +196,155 @@ public class WorkoutBActivity extends BaseActivity {
                                }
         );
 
-        /* button click handlers */
+        /*------------------------- workout button click handlers --------------------------------*/
 
         a1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
+
                 a1Click++;
-                if (a1Click%5 == 1) {
+
+                if (a1Click%6 == 1) {
                     a1.setBackground(roundFilled);
                     a1.setText("");
                 }
-                if (a1Click%5 == 2) {
+
+                if (a1Click%6 == 2) {
                     a1.setBackground(round);
                     a1.setText("1");
                 }
-                if (a1Click%5 == 3) a1.setText("2");
-                if (a1Click%5 == 4) a1.setText("3");
-                if (a1Click%5 == 0) a1.setText("4");
+
+                if (a1Click%6 == 3) {a1.setText("2");}
+                if (a1Click%6 == 4) {a1.setText("3");}
+                if (a1Click%6 == 5) {a1.setText("4");}
+                if (a1Click%6 == 0) {a1.setText("");}
             }
         });
 
         a2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
+
                 a2Click++;
-                if (a2Click%5 == 1) {
+
+                if (a2Click%6 == 1) {
                     a2.setBackground(roundFilled);
                     a2.setText("");
                 }
-                if (a2Click%5 == 2) {
+
+                if (a2Click%6 == 2) {
                     a2.setBackground(round);
                     a2.setText("1");
                 }
-                if (a2Click%5 == 3) a2.setText("2");
-                if (a2Click%5 == 4) a2.setText("3");
-                if (a2Click%5 == 0) a2.setText("4");
+
+                if (a2Click%6 == 3) {a2.setText("2");}
+                if (a2Click%6 == 4) {a2.setText("3");}
+                if (a2Click%6 == 5) {a2.setText("4");}
+                if (a2Click%6 == 0) {a2.setText("");}
             }
         });
 
         a3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
+
                 a3Click++;
-                if (a3Click%5 == 1) {
+
+                if (a3Click%6 == 1) {
                     a3.setBackground(roundFilled);
                     a3.setText("");
                 }
-                if (a3Click%5 == 2) {
+
+                if (a3Click%6 == 2) {
                     a3.setBackground(round);
                     a3.setText("1");
                 }
-                if (a3Click%5 == 3)
-                    a3.setText("2");
-                if (a3Click%5 == 4)
-                    a3.setText("3");
-                if (a3Click%5 == 0)
-                    a3.setText("4");
+
+                if (a3Click%6 == 3) {a3.setText("2");}
+                if (a3Click%6 == 4) {a3.setText("3");}
+                if (a3Click%6 == 5) {a3.setText("4");}
+                if (a3Click%6 == 0) {a3.setText("");}
             }
         });
 
         a4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
+
                 a4Click++;
-                if (a4Click%5 == 1) {
+
+                if (a4Click%6 == 1) {
                     a4.setBackground(roundFilled);
                     a4.setText("");
                 }
-                if (a4Click%5 == 2) {
+
+                if (a4Click%6 == 2) {
                     a4.setBackground(round);
                     a4.setText("1");
                 }
-                if (a4Click%5 == 3) a4.setText("2");
-                if (a4Click%5 == 4) a4.setText("3");
-                if (a4Click%5 == 0) a4.setText("4");
+
+                if (a4Click%6 == 3) {a4.setText("2");}
+                if (a4Click%6 == 4) {a4.setText("3");}
+                if (a4Click%6 == 5) {a4.setText("4");}
+                if (a4Click%6 == 0) {a4.setText("");}
             }
         });
 
         a5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
+
                 a5Click++;
-                if (a5Click%5 == 1) {
+
+                if (a5Click%6 == 1) {
                     a5.setBackground(roundFilled);
                     a5.setText("");
                 }
-                if (a5Click%5 == 2) {
+
+                if (a5Click%6 == 2) {
                     a5.setBackground(round);
                     a5.setText("1");
                 }
-                if (a5Click%5 == 3) a5.setText("2");
-                if (a5Click%5 == 4) a5.setText("3");
-                if (a5Click%5 == 0)
-                    a5.setText("4");
+
+                if (a5Click%6 == 3) {a5.setText("2");}
+                if (a5Click%6 == 4) {a5.setText("3");}
+                if (a5Click%6 == 5) {a5.setText("4");}
+                if (a5Click%6 == 0) {a5.setText("");}
             }
         });
+
 
         //OHP stuff
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
                 b1Click++;
-                if (b1Click%5 == 1) {
+                if (b1Click%6 == 1) {
                     b1.setBackground(roundFilled);
                     b1.setText("");
                 }
-                if (b1Click%5 == 2) {
+                if (b1Click%6 == 2) {
                     b1.setBackground(round);
                     b1.setText("1");
                 }
-                if (b1Click%5 == 3)
-                    b1.setText("2");
-                if (b1Click%5 == 4)
-                    b1.setText("3");
-                if (b1Click%5 == 0) b1.setText("4");
+                if (b1Click%6 == 3) {b1.setText("2");}
+                if (b1Click%6 == 4) {b1.setText("3");}
+                if (b1Click%6 == 5) {b1.setText("4");}
+                if (b1Click%6 == 0) {b1.setText("");}
             }
         });
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
                 b2Click++;
-                if (b2Click%5 == 1) {b2.setBackground(roundFilled);b2.setText("");
+                if (b2Click%6 == 1) {b2.setBackground(roundFilled);b2.setText("");
                 }
-                if (b2Click%5 == 2) {b2.setBackground(round);b2.setText("1");
+                if (b2Click%6 == 2) {b2.setBackground(round);b2.setText("1");
                 }
-                if (b2Click%5 == 3) b2.setText("2");
-                if (b2Click%5 == 4) b2.setText("3");
-                if (b2Click%5 == 0) b2.setText("4");
+                if (b2Click%6 == 3) {b2.setText("2");}
+                if (b2Click%6 == 4) {b2.setText("3");}
+                if (b2Click%6 == 5) {b2.setText("4");}
+                if (b2Click%6 == 0) {b2.setText("");}
             }
         });
 
@@ -312,17 +352,18 @@ public class WorkoutBActivity extends BaseActivity {
             @Override
             public void onClick (View v) {
                 b3Click++;
-                if (b3Click%5 == 1) {
+                if (b3Click%6 == 1) {
                     b3.setBackground(roundFilled);
                     b3.setText("");
                 }
-                if (b3Click%5 == 2) {
+                if (b3Click%6 == 2) {
                     b3.setBackground(round);
                     b3.setText("1");
                 }
-                if (b3Click%5 == 3) b3.setText("2");
-                if (b3Click%5 == 4) b3.setText("3");
-                if (b3Click%5 == 0) b3.setText("4");
+                if (b3Click%6 == 3) {b3.setText("2");}
+                if (b3Click%6 == 4) {b3.setText("3");}
+                if (b3Click%6 == 5) {b3.setText("4");}
+                if (b3Click%6 == 0) {b3.setText("");}
             }
         });
 
@@ -330,17 +371,18 @@ public class WorkoutBActivity extends BaseActivity {
             @Override
             public void onClick (View v) {
                 b4Click++;
-                if (b4Click%5 == 1) {
+                if (b4Click%6 == 1) {
                     b4.setBackground(roundFilled);
                     b4.setText("");
                 }
-                if (b4Click%5 == 2) {
+                if (b4Click%6 == 2) {
                     b4.setBackground(round);
                     b4.setText("1");
                 }
-                if (b4Click%5 == 3) b4.setText("2");
-                if (b4Click%5 == 4) b4.setText("3");
-                if (b4Click%5 == 0) b4.setText("4");
+                if (b4Click%6 == 3) {b4.setText("2");}
+                if (b4Click%6 == 4) {b4.setText("3");}
+                if (b4Click%6 == 5) {b4.setText("4");}
+                if (b4Click%6 == 0) {b4.setText("");}
             }
         });
 
@@ -348,17 +390,18 @@ public class WorkoutBActivity extends BaseActivity {
             @Override
             public void onClick (View v) {
                 b5Click++;
-                if (b5Click%5 == 1) {
+                if (b5Click%6 == 1) {
                     b5.setBackground(roundFilled);
                     b5.setText("");
                 }
-                if (b5Click%5 == 2) {
+                if (b5Click%6 == 2) {
                     b5.setBackground(round);
                     b5.setText("1");
                 }
-                if (b5Click%5 == 3) b5.setText("2");
-                if (b5Click%5 == 4) b5.setText("3");
-                if (b5Click%5 == 0) b5.setText("4");
+                if (b5Click%6 == 3) {b5.setText("2");}
+                if (b5Click%6 == 4) {b5.setText("3");}
+                if (b5Click%6 == 5) {b5.setText("4");}
+                if (b5Click%6 == 0) {b5.setText("");}
             }
         });
 
@@ -368,17 +411,18 @@ public class WorkoutBActivity extends BaseActivity {
             public void onClick (View v) {
                 c1Click++;
 
-                if (c1Click%5 == 1) {
+                if (c1Click%6 == 1) {
                     c1.setBackground(roundFilled);
                     c1.setText("");
                 }
-                if (c1Click%5 == 2) {
+                if (c1Click%6 == 2) {
                     c1.setBackground(round);
-                    c1.setText("1");
+                    c1.setText("4");
                 }
-                if (c1Click%5 == 3) c1.setText("2");
-                if (c1Click%5 == 4) c1.setText("3");
-                if (c1Click%5 == 0) c1.setText("4");
+                if (c1Click%6 == 3) c1.setText("3");
+                if (c1Click%6 == 4) c1.setText("2");
+                if (c1Click%6 == 5) c1.setText("1");
+                if (c1Click%6 == 0) c1.setText("");
             }
         });
     }

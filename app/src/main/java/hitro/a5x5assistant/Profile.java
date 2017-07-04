@@ -6,14 +6,15 @@ package hitro.a5x5assistant;
 
 public class Profile {
 
-    String name, bodyweight, squat, bench, row, ohp, dl;
+    String name;
+    double bodyweight, squat, bench, row, ohp, dl;
 
     public Profile() {
 
     }
 
 
-    public Profile(String name, String bodyweight, String squat, String bench, String row, String ohp, String dl) {
+    public Profile(String name, double bodyweight, double squat, double bench, double row, double ohp, double dl) {
         this.name = name;
         this.bodyweight = bodyweight;
         this.squat = squat;
@@ -22,4 +23,33 @@ public class Profile {
         this.ohp = ohp;
         this.dl = dl;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getBodyweight() {
+        return bodyweight;
+    }
+
+    public double getSquat() {
+        return squat;
+    }
+
+    public double getBench() {
+        return bench;
+    }
+
+    public double getRow() {
+        return row;
+    }
+
+    public double getOhp() {
+        return ohp;
+    }
+
+    public double getDl() {
+        return dl;
+    }
 }
+

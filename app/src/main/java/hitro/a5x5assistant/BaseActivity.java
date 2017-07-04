@@ -89,7 +89,6 @@ public class BaseActivity extends AppCompatActivity {
     //listens for a change in auth status, and redirects to login page if change detected,
     public void checkUserSignedIn(final FirebaseAuth auth, final FirebaseUser user){
         if (user == null) {
-            Log.i(TAG, "User NOT authorized");
             LoginManager.getInstance().logOut();
             auth.signOut();
             startActivity(new Intent(getApplicationContext(), LoginActivity.class));

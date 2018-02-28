@@ -42,7 +42,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtUnits"
+            android:id="@+id/txtUnits1a"
             android:textColor="@color/accent_material_red"
             android:text="@string/lb"/>
     </LinearLayout>
@@ -52,65 +52,70 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="19dp">
+
         <Button
-            android:id="@+id/btnSq1"
-            android:textColor="@color/primary_text"
-            android:textSize="30sp"
+            android:id="@+id/btnSq1a"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:adjustViewBounds="true"
+            android:background="@drawable/button_round"
             android:gravity="center_horizontal|center_vertical"
-            android:background="@drawable/button_round" />
+            android:textColor="@color/primary_text"
+            android:textSize="30sp" />
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1" />
+
         <Button
-            android:id="@+id/btnSq2"
-            android:textColor="@color/primary_text"
-            android:textSize="30sp"
+            android:id="@+id/btnSq2a"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:adjustViewBounds="true"
+            android:background="@drawable/button_round"
             android:gravity="center_horizontal|center_vertical"
-            android:background="@drawable/button_round" />
+            android:textColor="@color/primary_text"
+            android:textSize="30sp" />
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1" />
+
         <Button
-            android:id="@+id/btnSq3"
-            android:textColor="@color/primary_text"
-            android:textSize="30sp"
+            android:id="@+id/btnSq3a"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@drawable/button_round" />
+            android:background="@drawable/button_round"
+            android:textColor="@color/primary_text"
+            android:textSize="30sp" />
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1" />
+
         <Button
-            android:id="@+id/btnSq4"
-            android:textColor="@color/primary_text"
-            android:textSize="30sp"
+            android:id="@+id/btnSq4a"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:adjustViewBounds="true"
+            android:background="@drawable/button_round"
             android:gravity="center_horizontal|center_vertical"
-            android:background="@drawable/button_round" />
+            android:textColor="@color/primary_text"
+            android:textSize="30sp" />
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1" />
+
         <Button
-            android:id="@+id/btnSq5"
-            android:textColor="@color/primary_text"
-            android:textSize="30sp"
+            android:id="@+id/btnSq5a"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:adjustViewBounds="true"
+            android:background="@drawable/button_round"
             android:gravity="center_horizontal|center_vertical"
-            android:background="@drawable/button_round" />
+            android:textColor="@color/primary_text"
+            android:textSize="30sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -118,16 +123,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:orientation="horizontal">
+
         <TextView
             android:id="@+id/txtBench"
-            android:text="@string/bench"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/bench"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
             android:textSize="18sp" />
+
         <android.support.v4.widget.Space
             android:layout_width="163dp"
             android:layout_height="1dp" />
+
         <TextView
             android:id="@+id/txtBenchWeight"
             android:layout_width="wrap_content"
@@ -135,15 +143,17 @@
             android:text="90"
             android:textColor="@color/accent_material_red"
             android:textSize="24sp" />
+
         <android.support.v4.widget.Space
             android:layout_width="7dp"
             android:layout_height="1dp" />
+
         <TextView
+            android:id="@+id/txtUnits2a"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@id/txtUnits"
-            android:textColor="@color/accent_material_red"
-            android:text="@string/lb"/>
+            android:text="@string/lb"
+            android:textColor="@color/accent_material_red" />
     </LinearLayout>
 
     <LinearLayout
@@ -239,7 +249,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@id/txtUnits"
+            android:id="@+id/txtUnits3a"
             android:textColor="@color/accent_material_red"
             android:text="@string/lb"/>
     </LinearLayout>

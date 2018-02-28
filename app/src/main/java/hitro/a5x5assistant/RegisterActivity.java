@@ -19,11 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 //firebase database imports
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
 
 import com.google.firebase.auth.FirebaseUser;
 
@@ -40,8 +36,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
 
-    private DatabaseReference mFirebaseDatabase;
-    private FirebaseDatabase mFirebaseInstance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,8 +94,8 @@ public class RegisterActivity extends AppCompatActivity {
                                     uid = user.getUid();
 
                                     //firebase database references
-                                    mFirebaseInstance = FirebaseDatabase.getInstance();
-                                    mFirebaseDatabase = mFirebaseInstance.getReference("users"); //get reference to user node
+                                   // mFirebaseInstance = FirebaseDatabase.getInstance();
+                                   // mFirebaseDatabase = mFirebaseInstance.getReference("users"); //get reference to user node
 
                                     //Profile userObj = new Profile(name);
                                   //  mFirebaseDatabase.child(uid).setValue(userObj);
@@ -159,8 +153,8 @@ public class RegisterActivity extends AppCompatActivity {
                                     uid = user.getUid();
 
                                     //firebase database references
-                                    mFirebaseInstance = FirebaseDatabase.getInstance();
-                                    mFirebaseDatabase = mFirebaseInstance.getReference("users"); //get reference to user node
+                                   // mFirebaseInstance = FirebaseDatabase.getInstance();
+                                   // mFirebaseDatabase = mFirebaseInstance.getReference("users"); //get reference to user node
 
                                   //  User userObj = new User(name);
                                     //mFirebaseDatabase.child(uid).setValue(userObj);

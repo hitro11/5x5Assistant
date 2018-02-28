@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,25 +15,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.games.stats.Stats;
-import com.google.android.gms.vision.text.Text;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
 
 
 public class StatsActivity extends BaseActivity {
 
-    Button stats;
-    EditText bodyweight, squat, bench, row, ohp, dl;
+    private Button btnStats;
+    private EditText etBodyweight, etSquat, etBench, etRow, etOHP, etDL;
     private TextView txtUnits;
+    private String name;
+    private String units;
 
     private FirebaseAuth auth;
-    private DatabaseReference dbProfiles;
+
     private FirebaseUser user;
     private String uid;
 
@@ -49,97 +47,105 @@ public class StatsActivity extends BaseActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(StatsActivity.this, WorkoutSelectActivity.class);
                 startActivity(intent);
-
             }
         });
 
-        //button and edit text inits
-        stats = (Button)findViewById(R.id.btnUpdStats);
-        bodyweight = (EditText)findViewById(R.id.etBW);
-        squat = (EditText)findViewById(R.id.etSquatW);
-        bench = (EditText)findViewById(R.id.etBPW);
-        row = (EditText)findViewById(R.id.etRowW);
-        ohp = (EditText)findViewById(R.id.etOHPW);
-        dl = (EditText)findViewById(R.id.etDLW);
-        txtUnits = (TextView)findViewById(R.id.txtUnits);
+        units = sharedPref.getString("units","");
 
-        //firebase user auth refs
+        btnStats = (Button)findViewById(R.id.btnUpdStats);
+        etBodyweight = (EditText)findViewById(R.id.etBW);
+        etSquat = (EditText)findViewById(R.id.etSquatW);
+        etBench = (EditText)findViewById(R.id.etBPW);
+        etRow = (EditText)findViewById(R.id.etRowW);
+        etOHP = (EditText)findViewById(R.id.etOHPW);
+        etDL = (EditText)findViewById(R.id.etDLW);
+        txtUnits = (TextView)findViewById(R.id.txtUnits);
         auth = FirebaseAuth.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
-        uid = user.getUid().toString();
-        dbProfiles = FirebaseDatabase.getInstance().getReference("users"); //get reference to user node
+        uid = user.getUid();
+      //  dbProfiles = FirebaseDatabase.getInstance().getReference("profiles").child(uid); //get reference to user node
 
-
-        /* shows current stats*/
-        dbProfiles.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                Profile profile = dataSnapshot.getValue(Profile.class);
-
-                if (SettingsActivity.units == 0) {
-                    bodyweight.setText(String.valueOf(profile.getBodyweight()));
-                    squat.setText(String.valueOf(profile.getSquat()));
-                    bench.setText(String.valueOf(profile.getBench()));
-                    row.setText(String.valueOf(profile.getRow()));
-                    ohp.setText(String.valueOf(profile.getOhp()));
-                    dl.setText(String.valueOf(profile.getDl()));
-                    txtUnits.setText(R.string.lb);
-                }
-                else {
-
-                    double bodyweightTemp = Math.floor(profile.getBodyweight()/10 - profile.getBodyweight()/20);
-                    double squatTemp = Math.floor(profile.getSquat()/10 - profile.getSquat()/20);
-                    double benchTemp = Math.floor(profile.getBench()/10 - profile.getBench()/20);
-                    double rowTemp = Math.floor(profile.getRow()/10 - profile.getRow()/20);
-                    double ohpTemp = Math.floor(profile.getOhp()/10 - profile.getOhp()/20);
-                    double dlTemp = Math.floor(profile.getDl()/10 - profile.getDl()/20);
-
-                    bodyweight.setText(String.valueOf(profile.getBodyweight()));
-                    squat.setText(String.valueOf(profile.getSquat()));
-                    bench.setText(String.valueOf(profile.getBench()));
-                    row.setText(String.valueOf(profile.getRow()));
-                    ohp.setText(String.valueOf(profile.getOhp()));
-                    dl.setText(String.valueOf(profile.getDl()));
-                    txtUnits.setText(R.string.kg);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Failed to read value
-                // Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
-
-        //updates stats when "Update Stats" button is pressed
-        stats.setOnClickListener(new Button.OnClickListener() {
-                                   public void onClick(View view){
-
-                                       if (SettingsActivity.units == 0) {
-                                           dbProfiles.child(uid).child("bodyweight").setValue(bodyweight.getText().toString());
-                                           dbProfiles.child(uid).child("squat").setValue(squat.getText().toString());
-                                           dbProfiles.child(uid).child("bench").setValue(Integer.parseInt(bench.getText().toString()));
-                                           dbProfiles.child(uid).child("row").setValue(Integer.parseInt(row.getText().toString()));
-                                           dbProfiles.child(uid).child("ohp").setValue(Integer.parseInt(ohp.getText().toString()));
-                                           dbProfiles.child(uid).child("dl").setValue(Integer.parseInt(dl.getText().toString()));
-                                       }
-
-                                       else {
-                                           dbProfiles.child(uid).child("bodyweight").setValue(Integer.parseInt(bodyweight.getText().toString()) * 2.205);
-                                           dbProfiles.child(uid).child("squat").setValue(Integer.parseInt(squat.getText().toString())*2.205);
-                                           dbProfiles.child(uid).child("bench").setValue(Integer.parseInt(bench.getText().toString())*2.205);
-                                           dbProfiles.child(uid).child("row").setValue(Integer.parseInt(row.getText().toString())*2.205);
-                                           dbProfiles.child(uid).child("ohp").setValue(Integer.parseInt(ohp.getText().toString())*2.205);
-                                           dbProfiles.child(uid).child("dl").setValue(Integer.parseInt(dl.getText().toString())*2.205);
-                                       }
-
-                                       //display toast
-                                       Toast.makeText(getApplicationContext(), "Stats successfully updated",
-                                               Toast.LENGTH_SHORT).show();
-                                   }
-                               }
-        );
-
+//        /* shows current stats */
+//        dbProfiles.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//                Profile profile = dataSnapshot.getValue(Profile.class);
+//                name = profile.;
+//
+//                if(units.equals("lb")) {
+//                    etBodyweight.setText(String.valueOf(profile.getBodyweight()));
+//                    etSquat.setText(String.valueOf(profile.getSquat()));
+//                    etBench.setText(String.valueOf(profile.getBench()));
+//                    etRow.setText(String.valueOf(profile.getRow()));
+//                    etOHP.setText(String.valueOf(profile.getOhp()));
+//                    etDL.setText(String.valueOf(profile.getDl()));
+//                    txtUnits.setText(R.string.lb);
+//                }
+//                else {
+//
+//                    double bodyweightTemp = Math.floor(profile.getBodyweight()/2 - profile.getBodyweight()/20);
+//                    double squatTemp = Math.floor(profile.getSquat()/2 - profile.getSquat()/20);
+//                    double benchTemp = Math.floor(profile.getBench()/2 - profile.getBench()/20);
+//                    double rowTemp = Math.floor(profile.getRow()/2 - profile.getRow()/20);
+//                    double ohpTemp = Math.floor(profile.getOhp()/2 - profile.getOhp()/20);
+//                    double dlTemp = Math.floor(profile.getDl()/2 - profile.getDl()/20);
+//
+//                    etBodyweight.setText(String.valueOf(bodyweightTemp));
+//                    etSquat.setText(String.valueOf(squatTemp));
+//                    etBench.setText(String.valueOf(benchTemp));
+//                    etRow.setText(String.valueOf(rowTemp));
+//                    etOHP.setText(String.valueOf(ohpTemp));
+//                    etDL.setText(String.valueOf(dlTemp));
+//                    txtUnits.setText(R.string.kg);
+//                }
+//            }
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                // Log.w(TAG, "Failed to read value.", error.toException());
+//            }
+//        });
+//
+//        //updates stats when "Update Stats" button is pressed
+//        btnStats.setOnClickListener(new Button.OnClickListener() {
+//                                   public void onClick(View view){
+//
+//                                       if(units.equals("lb")) {
+//                                           dbProfiles.child("bodyweight").setValue(Double.parseDouble(etBodyweight.getText().toString()));
+//                                           dbProfiles.child("squat").setValue(Double.parseDouble(etSquat.getText().toString()));
+//                                           dbProfiles.child("bench").setValue(Double.parseDouble(etBench.getText().toString()));
+//                                           dbProfiles.child("row").setValue(Double.parseDouble(etRow.getText().toString()));
+//                                           dbProfiles.child("ohp").setValue(Double.parseDouble(etOHP.getText().toString()));
+//                                           dbProfiles.child("dl").setValue(Double.parseDouble(etDL.getText().toString()));
+//                                       }
+//                                       else {
+//                                           double bodyweightNew = Double.parseDouble(etBodyweight.getText().toString());
+//                                           bodyweightNew = bodyweightNew*2 + bodyweightNew/10;
+//
+//                                           double squatNew = Double.parseDouble(etSquat.getText().toString());
+//                                           squatNew = squatNew*2 + squatNew/10;
+//
+//                                           double benchNew = Double.parseDouble(etBench.getText().toString());
+//                                           benchNew = benchNew*2 + benchNew/10;
+//
+//                                           double rowNew = Double.parseDouble(etRow.getText().toString());
+//                                           rowNew = rowNew*2 + rowNew/10;
+//
+//                                           double ohpNew = Double.parseDouble(etOHP.getText().toString());
+//                                           ohpNew = ohpNew*2 + ohpNew/10;
+//
+//                                           double dlNew = Double.parseDouble(etDL.getText().toString());
+//                                           dlNew = dlNew*2 + dlNew/10;
+//
+//                                           Profile profile = new Profile(name, bodyweightNew, squatNew,
+//                                                   benchNew, rowNew, ohpNew, dlNew );
+//                                           dbProfiles.setValue(profile);
+//                                       }
+//
+//                                       Toast.makeText(getApplicationContext(), "Stats successfully updated",
+//                                               Toast.LENGTH_SHORT).show();
+//                                   }
+//                               }
+//        );
     }
 }

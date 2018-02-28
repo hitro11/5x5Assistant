@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="hitro.a5x5assistant">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -9,16 +10,21 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
+
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
-        android:icon="@drawable/dumbell"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
+            android:value="@string/facebook_app_id"
+            tools:replace="android:value"/>
+
+        <activity android:name=".BaseActivity" />
 
         <activity
             android:name="com.facebook.FacebookActivity"
@@ -142,11 +148,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="hitro.a5x5assistant.SettingsActivity" />
         </activity>
-        <activity android:name=".BaseActivity" />
+
         <activity
             android:name=".ProfileCreateActivity"
             android:label="@string/title_activity_profile_create"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+         </activity>
     </application>
 
 </manifest>

@@ -17,16 +17,10 @@ import android.widget.Toast;
 //firebase database imports
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class ProfileCreateActivity extends AppCompatActivity {
 
     final String TAG = "ProfileCreateActivity";
-    private DatabaseReference dbProfiles;
     private  String uid;
     private EditText etName, etBodyweight, etSquat, etBench, etRow, etOHP, etDL;
 
@@ -34,27 +28,26 @@ public class ProfileCreateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_create);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
-        dbProfiles = FirebaseDatabase.getInstance().getReference("profiles").child(uid); //get reference to user node
 
-        Button createProfile = (Button)findViewById(R.id.btnCreateProfile);
-        etName = (EditText)findViewById(R.id.etProfName);
-        etBodyweight =  (EditText)findViewById(R.id.etProfBodyweight);
-        etSquat =  (EditText)findViewById(R.id.etProfSquat);
-        etBench =  (EditText)findViewById(R.id.etProfBench);
-        etRow =  (EditText)findViewById(R.id.etProfRow);
-        etOHP =  (EditText)findViewById(R.id.etProfOHP);
-        etDL =  (EditText)findViewById(R.id.etProfDL);
+        Button createProfile = findViewById(R.id.btnCreateProfile);
+        etName = findViewById(R.id.etProfName);
+        etBodyweight =  findViewById(R.id.etProfBodyweight);
+        etSquat =  findViewById(R.id.etProfSquat);
+        etBench =  findViewById(R.id.etProfBench);
+        etRow =  findViewById(R.id.etProfRow);
+        etOHP =  findViewById(R.id.etProfOHP);
+        etDL =  findViewById(R.id.etProfDL);
 
         createProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String name = etName.getText().toString().trim();
-                double bodyweight = Double.parseDouble(etBodyweight.getText().toString().trim());
+                double body = Double.parseDouble(etBodyweight.getText().toString().trim());
                 double squat = Double.parseDouble(etSquat.getText().toString().trim());
                 double bench = Double.parseDouble(etBench.getText().toString().trim());
                 double row = Double.parseDouble(etRow.getText().toString().trim());
@@ -74,8 +67,8 @@ public class ProfileCreateActivity extends AppCompatActivity {
 
                 } else {
                     //stores profile in profiles table
-                    Profile profile = new Profile(name, bodyweight, squat, bench, row, ohp, dl);
-                    dbProfiles.setValue(profile);
+                    Profile profile = new Profile(name, body, squat, bench, row, ohp, dl);
+                    //dbProfiles.setValue(profile);
                     Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                     startActivity(intent);
 

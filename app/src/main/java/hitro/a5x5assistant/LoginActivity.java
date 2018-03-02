@@ -7,15 +7,19 @@ package hitro.a5x5assistant;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.EditText;
+import android.view.KeyEvent;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,16 +28,14 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginAcivity";
     private static final int RC_SIGN_IN = 123;
-    private EditText emailET, pwET;
     private FirebaseAuth auth;
-    private FirebaseUser user;
     private String uid;
     private CollectionReference users;
     List<AuthUI.IdpConfig> providers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-       super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
 
         // Choose authentication providers
         providers = Arrays.asList(
@@ -59,19 +61,32 @@ public class LoginActivity extends AppCompatActivity {
         if (requestCode == RC_SIGN_IN) {
             IdpResponse response = IdpResponse.fromResultIntent(data);
 
+            // successfully signed in
             if (resultCode == RESULT_OK) {
-                // Successfully signed in
-                user = FirebaseAuth.getInstance().getCurrentUser();
-                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-            } else {
-                // Sign in failed, check response for error code
+                try {
+                    uid = FirebaseAuth.getInstance().getUid();
+                } catch (NullPointerException e) {
+                    startActivity(new Intent(this, LoginActivity.class));
+                }
+
+                FirebaseFirestore.getInstance().document("users/" + uid ).get()
+                        .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                               @Override
+                               public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                   //check if user exists (redirect to stats page if not)
+                                   if (! task.getResult().exists()) {
+                                       startActivity(new Intent(LoginActivity.this, StatsActivity.class));
+                                   }
+                               }
+                       }
+                );
             }
         }
     }
 
     @Override
     public void onBackPressed() {
-        new AlertDialog.Builder(this)
+        new AlertDialog.Builder(LoginActivity.this)
                 .setMessage("Are you sure you want to exit?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
@@ -85,6 +100,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            onBackPressed();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         startActivityForResult(
@@ -94,7 +117,9 @@ public class LoginActivity extends AppCompatActivity {
                         .setLogo(R.mipmap.ic_launcher)
                         .build(),
                 RC_SIGN_IN);
-//        auth = FirebaseAuth.getInstance(); //gets shared instance of firebaseauth object
+    }
+
+    public void addUserIfNew () {
 
     }
 }

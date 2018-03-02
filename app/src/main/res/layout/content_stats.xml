@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,224 +7,205 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:layout_marginTop="40dp"
-    android:layout_marginBottom="90dp"
+    android:layout_margin="40dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="hitro.a5x5assistant.StatsActivity"
     tools:showIn="@layout/activity_stats">
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="@string/bw"
+        android:layout_height="wrap_content"
+        android:text="@string/statsPrompt"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/background_material_red"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-        <EditText
-            android:id="@+id/etBW"
-            android:inputType="number"
-            android:text=""
-            android:layout_marginLeft="70dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bw"
+                android:paddingTop="28dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/squat"
+                android:paddingTop="30dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bench"
+                android:paddingTop="30dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rows"
+                android:paddingTop="30dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/OHP"
+                android:paddingTop="35dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/DL"
+                android:paddingTop="40dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:layout_height="match_parent">
+            <EditText
+                android:id="@+id/etBW"
+                android:inputType="number"
+                android:text=""
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+            <EditText
+                android:id="@+id/etSquatW"
+                android:inputType="number"
+                android:text=""
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+            <EditText
+                android:id="@+id/etBPW"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:text=""
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+            <EditText
+                android:id="@+id/etRowW"
+                android:inputType="number"
+                android:text=""
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+            <EditText
+                android:id="@+id/etOHPW"
+                android:inputType="number"
+                android:text=""
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+            <EditText
+                android:id="@+id/etDLW"
+                android:inputType="number"
+                android:text=""
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@id/txtUnits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="29dp"
+                android:textColor="@color/accent_material_red"
+                android:textSize="12sp"
+
+                android:text="@string/lb" />
             <TextView
                 android:id="@+id/txtUnits"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingTop="31dp"
                 android:textColor="@color/accent_material_red"
-                android:textSize="16sp"
-                android:text="LB"
-                android:layout_marginLeft="10dp"/>
+                android:textSize="12sp"
+
+                android:text="@string/lb" />
+            <TextView
+                android:id="@id/txtUnits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="32dp"
+                android:textColor="@color/accent_material_red"
+                android:textSize="12sp"
+
+                android:text="@string/lb" />
+            <TextView
+                android:id="@id/txtUnits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="31dp"
+                android:textColor="@color/accent_material_red"
+                android:textSize="12sp"
+
+                android:text="@string/lb" />
+            <TextView
+                android:id="@id/txtUnits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="36dp"
+                android:textColor="@color/accent_material_red"
+                android:textSize="12sp"
+
+                android:text="@string/lb" />
+            <TextView
+                android:id="@id/txtUnits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="38dp"
+                android:textColor="@color/accent_material_red"
+                android:textSize="12sp"
+                android:text="@string/lb" />
+        </LinearLayout>
     </LinearLayout>
-
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_weight="1" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="@string/squat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-        <EditText
-            android:id="@+id/etSquatW"
-            android:inputType="number"
-            android:text=""
-            android:layout_marginLeft="115dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
-        <TextView
-            android:id="@id/txtUnits"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/accent_material_red"
-            android:textSize="16sp"
-            android:text="LB"
-            android:layout_marginLeft="10dp"/>
-    </LinearLayout>
-
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_weight="1" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="@string/bench"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-        <EditText
-            android:inputType="number"
-            android:text=""
-            android:layout_marginLeft="70dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/etBPW"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
-        <TextView
-            android:id="@id/txtUnits"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/accent_material_red"
-            android:textSize="16sp"
-            android:text="LB"
-            android:layout_marginLeft="10dp"/>
-        </LinearLayout>
-
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_weight="1" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="@string/rows"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-        <EditText
-            android:id="@+id/etRowW"
-            android:inputType="number"
-            android:text=""
-            android:layout_marginLeft="67dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
-        <TextView
-            android:id="@id/txtUnits"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/accent_material_red"
-            android:textSize="16sp"
-            android:text="LB"
-            android:layout_marginLeft="10dp"/>
-        </LinearLayout>
-
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_weight="1" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="@string/OHP"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-        <EditText
-            android:id="@+id/etOHPW"
-            android:inputType="number"
-            android:text=""
-            android:layout_marginLeft="42dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
-        <TextView
-            android:id="@id/txtUnits"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/accent_material_red"
-            android:textSize="16sp"
-            android:text="LB"
-            android:layout_marginLeft="10dp"/>
-        </LinearLayout>
-
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_weight="1" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="@string/DL"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-        <EditText
-            android:id="@+id/etDLW"
-            android:inputType="number"
-            android:text=""
-            android:layout_marginLeft="95dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
-        <TextView
-            android:id="@id/txtUnits"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/accent_material_red"
-            android:textSize="16sp"
-            android:text="LB"
-            android:layout_marginLeft="10dp"/>
-     </LinearLayout>
-
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_weight="1" />
 
     <Button
-        android:text="@string/updStats"
+        android:text="@string/saveStats"
         android:id="@+id/btnUpdStats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
 </LinearLayout>
+

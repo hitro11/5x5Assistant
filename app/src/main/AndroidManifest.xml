@@ -88,10 +88,6 @@
                 android:value="hitro.a5x5assistant.HomeActivity" />
         </activity>
         <activity
-            android:name=".RegisterActivity"
-            android:label="@string/title_activity_register"
-            android:launchMode="singleTask" />
-        <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
             android:launchMode="singleTask">

@@ -4,13 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -100,15 +102,18 @@ public class WorkoutAActivity extends BaseActivity {
         }
 
         // read weights from profile
-        dbProfile.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Profile profile = documentSnapshot.toObject(Profile.class);
-                squat = profile.getSquat();
-                bench = profile.getBench();
-                row = profile.getRow();
-            }
-        });
+        dbProfile.get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful() && task.getResult().exists()) {
+                            Profile profile = task.getResult().toObject(Profile.class);
+                            squat = profile.getSquat();
+                            bench = profile.getBench();
+                            row = profile.getRow();
+                        }
+                    }
+                });
 
         // set weights for current workout
         if (units.equals("lb")) {

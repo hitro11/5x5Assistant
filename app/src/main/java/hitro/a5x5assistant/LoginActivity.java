@@ -1,36 +1,30 @@
 package hitro.a5x5assistant;
 
-/**
- * Created by rohit on 11/4/2016.
- */
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
-
-import com.firebase.ui.auth.AuthUI;
-import com.firebase.ui.auth.IdpResponse;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-
+import android.widget.Toast;
 import java.util.Arrays;
 import java.util.List;
+import com.firebase.ui.auth.AuthUI;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 
 public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginAcivity";
     private static final int RC_SIGN_IN = 123;
-    private FirebaseAuth auth;
     private String uid;
-    private CollectionReference users;
+    private DatabaseReference dbProfiles;
     List<AuthUI.IdpConfig> providers;
 
     @Override
@@ -49,7 +43,9 @@ public class LoginActivity extends AppCompatActivity {
                 AuthUI.getInstance()
                         .createSignInIntentBuilder()
                         .setAvailableProviders(providers)
-                        .setLogo(R.mipmap.ic_launcher)
+                        .setLogo(R.mipmap.text_logo)
+                        .setTheme(R.style.AppTheme_NoActionBar)
+                        .setIsSmartLockEnabled(false)
                         .build(),
                 RC_SIGN_IN);
     }
@@ -58,29 +54,34 @@ public class LoginActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == RC_SIGN_IN) {
-            IdpResponse response = IdpResponse.fromResultIntent(data);
+        if (requestCode == RC_SIGN_IN && resultCode == RESULT_OK) {
+            try {
+                uid = FirebaseAuth.getInstance().getUid();
+            } catch (NullPointerException e) {
+                Toast.makeText(getApplicationContext(), "Problem signing in",
+                        Toast.LENGTH_LONG).show();
+            }
 
-            // successfully signed in
-            if (resultCode == RESULT_OK) {
-                try {
-                    uid = FirebaseAuth.getInstance().getUid();
-                } catch (NullPointerException e) {
-                    startActivity(new Intent(this, LoginActivity.class));
+            dbProfiles = FirebaseDatabase.getInstance().getReference("profiles/" + uid);
+            dbProfiles.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                        finish();
+                    } else {
+                        Intent intent = new Intent(LoginActivity.this, StatsActivity.class);
+                        intent.putExtra("IS_REGISTERED", false);
+                        startActivity(intent);
+                        finish();
+                    }
                 }
 
-                FirebaseFirestore.getInstance().document("users/" + uid ).get()
-                        .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                               @Override
-                               public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                   //check if user exists (redirect to stats page if not)
-                                   if (! task.getResult().exists()) {
-                                       startActivity(new Intent(LoginActivity.this, StatsActivity.class));
-                                   }
-                               }
-                       }
-                );
-            }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Log.v(TAG, "error reading profile");
+                }
+            });
         }
     }
 
@@ -107,19 +108,4 @@ public class LoginActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        startActivityForResult(
-                AuthUI.getInstance()
-                        .createSignInIntentBuilder()
-                        .setAvailableProviders(providers)
-                        .setLogo(R.mipmap.ic_launcher)
-                        .build(),
-                RC_SIGN_IN);
-    }
-
-    public void addUserIfNew () {
-
-    }
 }

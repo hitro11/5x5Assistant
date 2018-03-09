@@ -11,40 +11,46 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import java.util.Locale;
 
 public class BaseActivity extends AppCompatActivity {
 
     final String TAG = "BaseActivity";
+    String uid;
     SharedPreferences sharedPref;
+    String units;
+    DatabaseReference dbProfile;
+    ValueEventListener profileListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base);
         Locale.getDefault();
 
-        sharedPref = getSharedPreferences("userPref", Context.MODE_PRIVATE);
+        sharedPref = this.getSharedPreferences("userPref", Context.MODE_PRIVATE);
+        units = sharedPref.getString("units", "lb");
+        try {
+            uid = FirebaseAuth.getInstance().getUid();
+        } catch (NullPointerException e) {
+            startActivity(new Intent(this, LoginActivity.class));
+        }
+
 
     }
-
-    void signout() {
-        AuthUI.getInstance()
-                .signOut(this)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    public void onComplete(@NonNull Task<Void> task) {
-                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                    }
-                });
-    }
-
 
     @Override
     protected void onStart() {
@@ -58,6 +64,7 @@ public class BaseActivity extends AppCompatActivity {
         super.onResume();
         //Log.i(TAG, "onResume");
         checkUserSignedIn(FirebaseAuth.getInstance().getCurrentUser());
+        units = sharedPref.getString("units", "lb");
     }
 
     @Override
@@ -104,9 +111,82 @@ public class BaseActivity extends AppCompatActivity {
     public void checkUserSignedIn(final FirebaseUser user){
         if (user == null) {
             signout();
-            finish();
-        } else {
-            Log.i(TAG, user.getUid());
         }
     }
+
+    public void readAndSetValuesDB (final View[] weightViews, final TextView[] txtUnits, final String workout) {
+        dbProfile = FirebaseDatabase.getInstance().getReference("profiles/" + uid);
+
+        profileListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Profile profile = dataSnapshot.getValue(Profile.class);
+                double body = profile.getBody();
+                double squat = profile.getSquat();
+                double bench = profile.getBench();
+                double row = profile.getRow();
+                double ohp = profile.getOhp();
+                double dl = profile.getDl();
+
+                if (units.equals(getString(R.string.kg))) {
+                    body = Math.round(body / 5.5) * 2.5;
+                    squat = Math.round(squat / 5.5) * 2.5;
+                    bench = Math.round(bench / 5.5) * 2.5;
+                    row = Math.round(row / 5.5) * 2.5;
+                    ohp = Math.round(ohp / 5.5) * 2.5;
+                    dl = Math.round(dl / 5.5) * 2.5;
+
+                    for (int i = 0; i < txtUnits.length; i++) {
+                        txtUnits[i].setText(R.string.kg);
+                    }
+                }
+
+                double[] values = new double[] {body, squat, bench, row, ohp, dl};
+
+                if (workout.equals("A")) {
+                    ((TextView) weightViews[0]).setText(String.valueOf(squat));
+                    ((TextView) weightViews[1]).setText(String.valueOf(bench));
+                    ((TextView) weightViews[2]).setText(String.valueOf(row));
+                    return;
+                }
+                if (workout.equals("B")) {
+                    ((TextView) weightViews[0]).setText(String.valueOf(squat));
+                    ((TextView) weightViews[1]).setText(String.valueOf(ohp));
+                    ((TextView) weightViews[2]).setText(String.valueOf(dl));
+                    return;
+                }
+                if (workout.equals("")) {
+                    for (int i = 0; i < weightViews.length; i++) {
+                        ((TextView) weightViews[i]).setText(String.valueOf(values[i]));
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+            }
+        };
+
+        dbProfile.addValueEventListener(profileListener);
+    }
+
+    public double[] finishWorkout (String workout, EditText etEx1, EditText etEx2, EditText etEx3) {
+        if (workout.equals("A")) {
+
+
+        } else {
+
+        }
+        return new double[]{};
+    }
+    void signout() {
+        AuthUI.getInstance()
+                .signOut(this).addOnCompleteListener(new OnCompleteListener<Void>() {
+            public void onComplete(@NonNull Task<Void> task) {
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                finish();
+            }
+        });
+    }
+
 }

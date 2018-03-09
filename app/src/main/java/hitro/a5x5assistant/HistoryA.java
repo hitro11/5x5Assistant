@@ -1,13 +1,9 @@
 package hitro.a5x5assistant;
 
-/**
- * Created by rohit on 1/3/2017.
- */
-
 public class HistoryA {
 
     private double squat, bench, row;
-    private String date, workout;
+    private String date;
     private boolean squatDone, benchDone, rowDone;
 
     public HistoryA() {  }
@@ -16,7 +12,6 @@ public class HistoryA {
                    boolean benchDone, boolean rowDone) {
 
         this.date = date;
-        this.workout = "A";
         this.squat = squat;
         this.bench = bench;
         this.row = row;

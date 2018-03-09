@@ -54,7 +54,7 @@
         android:layout_marginTop="19dp">
 
         <Button
-            android:id="@+id/btnSq1a"
+            android:id="@+id/btnSquat1a"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:adjustViewBounds="true"
@@ -68,7 +68,7 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/btnSq2a"
+            android:id="@+id/btnSquat2a"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:adjustViewBounds="true"
@@ -82,7 +82,7 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/btnSq3a"
+            android:id="@+id/btnSquat3a"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@drawable/button_round"
@@ -94,7 +94,7 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/btnSq4a"
+            android:id="@+id/btnSquat4a"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:adjustViewBounds="true"
@@ -108,7 +108,7 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/btnSq5a"
+            android:id="@+id/btnSquat5a"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:adjustViewBounds="true"
@@ -160,65 +160,70 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp">
+
         <Button
-            android:id="@+id/btnBP1"
-            android:textColor="@color/primary_text"
-            android:textSize="30sp"
+            android:id="@+id/btnBench1"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:adjustViewBounds="true"
+            android:background="@drawable/button_round"
             android:gravity="center_horizontal|center_vertical"
-            android:background="@drawable/button_round" />
+            android:textColor="@color/primary_text"
+            android:textSize="30sp" />
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1" />
+
         <Button
-            android:id="@+id/btnBP2"
-            android:textColor="@color/primary_text"
-            android:textSize="30sp"
+            android:id="@+id/btnBench2"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:adjustViewBounds="true"
+            android:background="@drawable/button_round"
             android:gravity="center_horizontal|center_vertical"
-            android:background="@drawable/button_round" />
+            android:textColor="@color/primary_text"
+            android:textSize="30sp" />
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1" />
+
         <Button
-            android:id="@+id/btnBP3"
-            android:textColor="@color/primary_text"
-            android:textSize="30sp"
+            android:id="@+id/btnBench3"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@drawable/button_round" />
+            android:background="@drawable/button_round"
+            android:textColor="@color/primary_text"
+            android:textSize="30sp" />
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1" />
+
         <Button
-            android:id="@+id/btnBP4"
-            android:textColor="@color/primary_text"
-            android:textSize="30sp"
+            android:id="@+id/btnBench4"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:adjustViewBounds="true"
+            android:background="@drawable/button_round"
             android:gravity="center_horizontal|center_vertical"
-            android:background="@drawable/button_round" />
+            android:textColor="@color/primary_text"
+            android:textSize="30sp" />
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1" />
+
         <Button
-            android:id="@+id/btnBP5"
-            android:textColor="@color/primary_text"
-            android:textSize="30sp"
+            android:id="@+id/btnBench5"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:adjustViewBounds="true"
+            android:background="@drawable/button_round"
             android:gravity="center_horizontal|center_vertical"
-            android:background="@drawable/button_round" />
+            android:textColor="@color/primary_text"
+            android:textSize="30sp" />
     </LinearLayout>
 
     <LinearLayout

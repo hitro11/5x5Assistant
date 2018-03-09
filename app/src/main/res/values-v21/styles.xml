@@ -7,7 +7,7 @@
         <item name="android:colorAccent">@color/accent_material_red</item>
         <item name="android:colorBackground">@color/background_material_red</item>
         <item name="android:textColorPrimary">@android:color/primary_text_light</item>
-        <item name="android:colorForeground">@color/foreground_material_dark</item>
+        <item name="android:colorForeground">@android:color/white</item>
         <item name="android:textColorSecondary">@android:color/black</item>
     </style>
 
@@ -17,4 +17,36 @@
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
+    <style name="LoginTheme" parent="FirebaseUI">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorButtonNormal">@color/colorAccent</item>
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorControlActivated">@android:color/white</item>
+        <item name="colorControlHighlight">@android:color/white</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <!--<item name="android:windowBackground">@mipmap/bg_login</item>-->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">false</item>
+        <item name="android:textColorHint">@android:color/white</item>
+    </style>
+
+    <style name="FirebaseUI.Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="FirebaseUI.Text.Link">
+        <item name="android:textColor">@color/background_material_red</item>
+    </style>
+
+
+
+
 </resources>

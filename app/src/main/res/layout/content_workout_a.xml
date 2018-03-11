@@ -29,13 +29,13 @@
         <android.support.v4.widget.Space
             android:layout_width="220dp"
             android:layout_height="1dp" />
+
         <TextView
             android:id="@+id/txtSqWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="90"
             android:textColor="@color/accent_material_red"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
         <android.support.v4.widget.Space
             android:layout_width="6dp"
             android:layout_height="1dp" />
@@ -140,7 +140,6 @@
             android:id="@+id/txtBenchWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="90"
             android:textColor="@color/accent_material_red"
             android:textSize="24sp" />
 
@@ -241,11 +240,11 @@
         <android.support.v4.widget.Space
             android:layout_width="165dp"
             android:layout_height="1dp" />
+
         <TextView
             android:id="@+id/txtRowWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="90"
             android:textColor="@color/accent_material_red"
             android:textSize="24sp" />
         <android.support.v4.widget.Space

@@ -3,7 +3,7 @@ package hitro.a5x5assistant;
 public class HistoryA {
 
     private double squat, bench, row;
-    private String date;
+    private String date, workout;
     private boolean squatDone, benchDone, rowDone;
 
     public HistoryA() {  }
@@ -12,6 +12,7 @@ public class HistoryA {
                    boolean benchDone, boolean rowDone) {
 
         this.date = date;
+        this.workout = "A";
         this.squat = squat;
         this.bench = bench;
         this.row = row;
@@ -24,6 +25,7 @@ public class HistoryA {
     public String getDate() {
         return date;
     }
+    public String getWorkout() {  return workout;  }
     public double getSquat() {
         return squat;
     }

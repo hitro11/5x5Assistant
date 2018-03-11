@@ -12,6 +12,11 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -19,52 +24,41 @@ public class ProgressActivity extends BaseActivity {
 
     static final String TAG = "ProgressActivity";
     FirebaseAuth auth;
-    FirebaseUser user;
-    String uid;
-
     ArrayList <Integer> dates;
     RecyclerView rv;
     HistoryA historyA;
     HistoryB historyB;
     TextView txtNoHistory;
-    String units;
-    double squatWeight, benchWeight, rowWeight, ohpWeight, dlWeight;
+    double ex1, ex2, ex3;
+    String workout;
+    DatabaseReference dbHistory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        units = sharedPref.getString("units","");
-
-        rv = (RecyclerView)findViewById(R.id.progRV);
-        auth = FirebaseAuth.getInstance();
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        try {
-            uid = user.getUid();
-        } catch (NullPointerException e) {
-            startActivity(new Intent(ProgressActivity.this, LoginActivity.class));
-        }
+        rv = findViewById(R.id.progRV);
         dates = new ArrayList<>();
-        //dbHistory = FirebaseDatabase.getInstance().getReference("history").child(uid);
-        txtNoHistory = (TextView)findViewById(R.id.txtNoHistory);
+        txtNoHistory = findViewById(R.id.txtNoHistory);
         txtNoHistory.setVisibility(View.GONE);
 
-//        dbHistory.orderByChild("date").addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                    history = dataSnapshot.getValue(History.class);
-//                    if (history == null) {
-//                       txtNoHistory.setVisibility(View.VISIBLE);
-//                    }
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//            }
-//        });
+        dbHistory = FirebaseDatabase.getInstance().getReference("history/" + uid);
+        dbHistory.orderByChild("date").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                    HistoryA history = dataSnapshot.getValue(HistoryA.class);
+                    if (history == null) {
+                       txtNoHistory.setVisibility(View.VISIBLE);
+                    }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
 //
 //        if (history != null) {
 //            final FirebaseRecyclerAdapter adapter = new FirebaseRecyclerAdapter <History, ProgressHolder>

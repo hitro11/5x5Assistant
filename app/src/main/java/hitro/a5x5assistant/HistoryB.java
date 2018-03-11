@@ -1,9 +1,5 @@
 package hitro.a5x5assistant;
 
-/**
- * Created by rohit on 1/3/2017.
- */
-
 public class HistoryB {
 
     private double squat, ohp, dl;
@@ -29,6 +25,7 @@ public class HistoryB {
     public String getDate() {
         return date;
     }
+    public String getWorkout() {  return workout;  }
     public double getSquat() {
         return squat;
     }

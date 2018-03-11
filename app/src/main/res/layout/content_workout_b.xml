@@ -34,7 +34,6 @@
                     android:id="@+id/txtSquatWeight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="90"
                     android:textColor="@color/accent_material_red"
                     android:textSize="24sp" />
                 <android.support.v4.widget.Space
@@ -135,11 +134,11 @@
                 <android.support.v4.widget.Space
                     android:layout_width="130dp"
                     android:layout_height="1dp" />
+
                 <TextView
                     android:id="@+id/txtOHPweight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="90"
                     android:textColor="@color/accent_material_red"
                     android:textSize="24sp" />
                 <android.support.v4.widget.Space
@@ -242,13 +241,13 @@
                 <android.support.v4.widget.Space
                     android:layout_width="205dp"
                     android:layout_height="1dp" />
-                <TextView
-                    android:id="@+id/txtDLweight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="90"
-                    android:textColor="@color/accent_material_red"
-                    android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txtDLweight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/accent_material_red"
+            android:textSize="24sp" />
                 <android.support.v4.widget.Space
                     android:layout_width="7dp"
                     android:layout_height="1dp" />

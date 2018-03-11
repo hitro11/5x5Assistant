@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class ProgressHolder extends RecyclerView.ViewHolder {
 
     TextView txtWorkout, txtDate,
-            txtSquatW, txtBenchW, txtRowW, txtOHPW, txtDLW,
+            txtSquat, txtBench, txtRow, txtOHP, txtDL,
             txtSquatDone, txtBenchDone, txtRowDone, txtOHPDone, txtDLDone;
 
     //default constructor
@@ -21,11 +21,11 @@ public class ProgressHolder extends RecyclerView.ViewHolder {
         txtDate = (TextView)view.findViewById(R.id.txtDate);
         txtWorkout = (TextView)view.findViewById(R.id.txtWorkout);
 
-        txtSquatW = (TextView)view.findViewById(R.id.txtSquatW);
-        txtBenchW = (TextView)view.findViewById(R.id.txtBenchW);
-        txtRowW = (TextView)view.findViewById(R.id.txtRowW);
-        txtOHPW = (TextView)view.findViewById(R.id.txtOHPW);
-        txtDLW = (TextView)view.findViewById(R.id.txtDLW);
+        txtSquat = (TextView)view.findViewById(R.id.txtSquatW);
+        txtBench = (TextView)view.findViewById(R.id.txtBenchW);
+        txtRow = (TextView)view.findViewById(R.id.txtRowW);
+        txtOHP = (TextView)view.findViewById(R.id.txtOHPW);
+        txtDL = (TextView)view.findViewById(R.id.txtDLW);
 
         txtSquatDone = (TextView)view.findViewById(R.id.txtSquatDone);
         txtBenchDone = (TextView)view.findViewById(R.id.txtBenchDone);

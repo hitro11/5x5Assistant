@@ -59,10 +59,12 @@ public class SettingsActivity extends BaseActivity {
         spEditor = sharedPref.edit();
 
         // checks radio button automatically (depending on units)
-        if (units.equals("lb")) {
+        if (units.equals(getResources().getString(R.string.lb))) {
             btnLB.setChecked(true);
+            btnKG.setChecked(false);
         } else {
             btnKG.setChecked(true);
+            btnLB.setChecked(false);
         }
 
         btnLB.setOnClickListener(new View.OnClickListener() {

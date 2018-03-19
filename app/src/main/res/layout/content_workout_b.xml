@@ -126,7 +126,7 @@
                 android:orientation="horizontal">
                 <TextView
                     android:id="@+id/txtOHP"
-                    android:text="@string/OHP"
+                    android:text="@string/ohp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button"
@@ -233,7 +233,7 @@
                 android:orientation="horizontal">
                 <TextView
                     android:id="@+id/txtDL"
-                    android:text="@string/DL"
+                    android:text="@string/dl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button"

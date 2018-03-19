@@ -37,10 +37,10 @@
     <string name="progress">Progress</string>
     <string name="title_activity_workout">Workout</string>
     <string name="bench">Bench Press</string>
-    <string name="OHP">Overhead Press</string>
+    <string name="ohp">Overhead Press</string>
     <string name="squat">Squat</string>
-    <string name="DL">Deadlift</string>
-    <string name="rows">Barbell Row</string>
+    <string name="dl">Deadlift</string>
+    <string name="row">Barbell Row</string>
     <string name="pullups">Pull-ups</string>
     <string name="title_activity_workout1">Workout A</string>
     <string name="title_activity_workout2">Workout B</string>
@@ -57,8 +57,8 @@
     <string name="lb">LB</string>
     <string name="bw">Body Weight</string>
     <string name="saveStats">Save Stats</string>
-    <string name="day">DAY </string>
-    <string name="workoutProg">WORKOUT </string>
+    <string name="date">DATE:  </string>
+    <string name="workoutProg">WORKOUT: </string>
     <string name="weightProg">WEIGHT</string>
     <string name="unitsProg">(LB)</string>
     <string name="settings">Settings</string>

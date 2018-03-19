@@ -48,8 +48,6 @@ public class BaseActivity extends AppCompatActivity {
         } catch (NullPointerException e) {
             startActivity(new Intent(this, LoginActivity.class));
         }
-
-
     }
 
     @Override
@@ -57,6 +55,7 @@ public class BaseActivity extends AppCompatActivity {
         super.onStart();
         //Log.i(TAG, "onStart");
         checkUserSignedIn(FirebaseAuth.getInstance().getCurrentUser());
+        units = sharedPref.getString("units", "lb");
     }
 
     @Override

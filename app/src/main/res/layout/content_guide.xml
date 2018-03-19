@@ -48,7 +48,7 @@
         android:layout_height="30dp" />
 
     <TextView
-        android:text="@string/rows"
+        android:text="@string/row"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
@@ -62,7 +62,7 @@
         android:layout_height="30dp" />
 
     <TextView
-        android:text="@string/OHP"
+        android:text="@string/ohp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtOHP"
@@ -76,7 +76,7 @@
         android:layout_height="30dp" />
 
     <TextView
-        android:text="@string/DL"
+        android:text="@string/dl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"

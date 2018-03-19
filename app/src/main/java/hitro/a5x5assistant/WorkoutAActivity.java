@@ -48,7 +48,6 @@ public class WorkoutAActivity extends BaseActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final Drawable roundFilled = ContextCompat.getDrawable(this, R.drawable.button_round_filled);
         a1 = findViewById(R.id.btnSquat1a);
         a2 = findViewById(R.id.btnSquat2a);
         a3 = findViewById(R.id.btnSquat3a);
@@ -127,8 +126,8 @@ public class WorkoutAActivity extends BaseActivity {
 
                 if (units.equals(getString(R.string.kg))) {
                     squatNew = Math.round(squatNew * .44) * 5;
-                    benchNew = Math.round(squatNew * .44) * 5;
-                    rowNew = Math.round(squatNew * .44) * 5;
+                    benchNew = Math.round(benchNew * .44) * 5;
+                    rowNew = Math.round(rowNew * .44) * 5;
                 }
 
                 //check if all sets of the 3 exercises were completed successfully
@@ -159,7 +158,7 @@ public class WorkoutAActivity extends BaseActivity {
                 String date = dateFormat.format(new Date());
                 dbHistory =  FirebaseDatabase.getInstance().getReference("history/" + uid);
                 dbHistory.child(date).setValue(
-                        new HistoryA(date, squatNew, benchNew, rowNew,
+                        new History("A", date, squatNew, benchNew, rowNew,
                         squatDone, benchDone, rowDone)
                 );
 

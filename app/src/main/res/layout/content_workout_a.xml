@@ -232,7 +232,7 @@
         android:orientation="horizontal">
         <TextView
             android:id="@+id/txtRow"
-            android:text="@string/rows"
+            android:text="@string/row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"

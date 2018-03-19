@@ -8,264 +8,176 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     card_view:cardCornerRadius="4dp"
-    card_view:cardElevation="4dp"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp"
+    card_view:cardElevation="10dp"
+    android:layout_margin="20dp"
     card_view:cardBackgroundColor="@color/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:background="@color/accent_material_red"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+        <Space
+            android:layout_width="3dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:id="@+id/txtDate"
+            android:text="21" />
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:text="@string/workoutProg"/>
+        <Space
+            android:layout_width="3dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtWorkout"
+            android:text="A"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
 
 
     <LinearLayout
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:orientation="vertical">
-
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp"
+        android:padding="10dp">
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/accent_material_red"
-                android:text="@string/day"/>
-            <Space
-                android:layout_width="3dp"
-                android:layout_height="1dp">
-            </Space>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtDate"
-                android:textColor="@color/accent_material_red" />
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" >
-            </Space>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/accent_material_red"
-                android:text="@string/workoutProg"/>
-            <Space
-                android:layout_width="3dp"
-                android:layout_height="1dp">
-            </Space>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtWorkout"
-                android:textColor="@color/accent_material_red" />
-        </LinearLayout>
+            android:orientation="vertical">
 
-        <Space
-            android:layout_width="1dp"
-            android:layout_height="3dp">
-        </Space>
-        <View android:background="@color/accent_material_red"
-            android:layout_width = "match_parent"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp"
-            android:layout_height="1dp"/>
-        <Space
-            android:layout_width="1dp"
-            android:layout_height="10dp">
-        </Space>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp">
             <TextView
-                android:layout_width="130dp"
+                android:id="@+id/txtEx1Prog"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/squat"
-                android:textColor="@android:color/white"/>
-            <Space
-                android:layout_width="50dp"
-                android:layout_height="0dp">
-            </Space>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtSquatW"
-                android:text="90"
-                android:textColor="@android:color/white"/>
-            <Space
-                android:layout_width="1dp"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-            </Space>
+                android:textColor="@android:color/white" />
 
             <TextView
+                android:id="@+id/txtEx2Prog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Exercise 2"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/txtEx3Prog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Exercise 3"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtEx1WProg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtSquatDone"
-                android:text="success"
-                android:textColor="@android:color/white"/>
+                android:text="100"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/txtEx2WProg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/txtEx3WProg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100"
+                android:textColor="@android:color/white" />
         </LinearLayout>
 
         <Space
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" >
+            android:layout_width="4dp"
+            android:layout_height="match_parent">
         </Space>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtUnitProg1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp">
-            <TextView
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:text="@string/bench"
-                android:textColor="@android:color/white"/>
-            <Space
-                android:layout_width="50dp"
-                android:layout_height="0dp">
-            </Space>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtBenchW"
-                android:text="90"
-                android:textColor="@android:color/white"/>
-
-            <Space
-                android:layout_width="1dp"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-            </Space>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtBenchDone"
-                android:text="success"
-                android:textColor="@android:color/white"/>
-        </LinearLayout>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" >
-        </Space>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:text="@string/lb"
+            android:textColor="@android:color/white" />
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp">
-            <TextView
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:text="@string/rows"
-                android:textColor="@android:color/white"/>
-            <Space
-                android:layout_width="50dp"
-                android:layout_height="0dp">
-            </Space>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtRowW"
-                android:text="90"
-                android:textColor="@android:color/white"/>
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" >
-            </Space>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtRowDone"
-                android:text="success"
-                android:textColor="@android:color/white"/>
-        </LinearLayout>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" >
-        </Space>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/txtUnitProg2"
+            android:text="@string/lb"
+            android:textColor="@android:color/white"/>
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp">
-            <TextView
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:text="@string/OHP"
-                android:textColor="@android:color/white"/>
-            <Space
-                android:layout_width="50dp"
-                android:layout_height="0dp">
-            </Space>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtOHPW"
-                android:text="90"
-                android:textColor="@android:color/white"/>
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" >
-            </Space>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtOHPDone"
-                android:text="success"
-                android:textColor="@android:color/white"/>
-        </LinearLayout>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" >
-        </Space>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp">
-            <TextView
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:text="@string/DL"
-                android:textColor="@android:color/white"/>
-            <Space
-                android:layout_width="50dp"
-                android:layout_height="0dp">
-            </Space>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtDLW"
-                android:text="90"
-                android:textColor="@android:color/white"/>
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" >
-            </Space>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtDLDone"
-                android:text="success"
-                android:textColor="@android:color/white"/>
-        </LinearLayout>
+            android:id="@+id/txtUnitProg3"
+            android:text="@string/lb"
+            android:textColor="@android:color/white"/>
     </LinearLayout>
 
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        </Space>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtEx1DoneProg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="success"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/txtEx2DoneProg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="success"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/txtEx3DoneProg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="success"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </LinearLayout>
 </android.support.v7.widget.CardView>

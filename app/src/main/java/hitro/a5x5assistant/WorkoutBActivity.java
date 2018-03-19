@@ -30,7 +30,6 @@ public class WorkoutBActivity extends BaseActivity {
     private boolean squatDone, ohpDone, dlDone;
     private TextView txtSquat, txtOHP, txtDL;
     private Button a1, a2, a3, a4, a5, b1, b2, b3, b4, b5, c1, fin;
-    private Drawable round, roundFilled;
     private SimpleDateFormat dateFormat;
     private TextView[] txtUnits;
     private View[] txtValues;
@@ -44,8 +43,6 @@ public class WorkoutBActivity extends BaseActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        roundFilled = getResources().getDrawable(R.drawable.button_round_filled);
-        round = getResources().getDrawable(R.drawable.button_round);
         a1 = findViewById(R.id.btnSq1b);
         a2 = findViewById(R.id.btnSq2b);
         a3 = findViewById(R.id.btnSq3b);
@@ -141,7 +138,7 @@ public class WorkoutBActivity extends BaseActivity {
                 String date = dateFormat.format(new Date());
                 dbHistory =  FirebaseDatabase.getInstance().getReference("history/" + uid);
                 dbHistory.child(date).setValue(
-                        new HistoryB(date, squatNew, ohpNew, dlNew,
+                        new History("B", date, squatNew, ohpNew, dlNew,
                                 squatDone, ohpDone, dlDone)
                 );
 

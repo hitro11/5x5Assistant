@@ -37,6 +37,7 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-auth:3.1.0'
     implementation 'com.facebook.android:facebook-android-sdk:4.30.0'
     implementation 'com.google.firebase:firebase-database:11.8.0'
+    implementation 'com.firebaseui:firebase-ui-database:1.1.1'
     // implementation 'com.google.firebase:firebase-firestore:11.8.0'
 
 

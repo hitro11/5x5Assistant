@@ -51,19 +51,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/rows"
+                android:text="@string/row"
                 android:paddingTop="30dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/OHP"
+                android:text="@string/ohp"
                 android:paddingTop="35dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/DL"
+                android:text="@string/dl"
                 android:paddingTop="40dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
         </LinearLayout>

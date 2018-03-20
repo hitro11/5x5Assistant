@@ -12,60 +12,89 @@
     tools:context="hitro.a5x5assistant.StatsActivity"
     tools:showIn="@layout/activity_stats">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/statsPrompt"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/background_material_red"
-        android:paddingTop="20dp"
-        android:paddingBottom="10dp"/>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="330dp"
+        android:layout_height="450dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:paddingTop="20dp"
                 android:text="@string/bw"
-                android:paddingTop="28dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textSize="22sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:paddingTop="20dp"
                 android:text="@string/squat"
-                android:paddingTop="30dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textSize="22sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:paddingTop="20dp"
                 android:text="@string/bench"
-                android:paddingTop="30dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textSize="22sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:paddingTop="20dp"
                 android:text="@string/row"
-                android:paddingTop="30dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textSize="22sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:paddingTop="20dp"
                 android:text="@string/ohp"
-                android:paddingTop="35dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textSize="22sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:paddingTop="20dp"
                 android:text="@string/dl"
-                android:paddingTop="40dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textSize="22sp" />
         </LinearLayout>
 
         <Space
@@ -74,68 +103,90 @@
             android:layout_weight="1" />
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <EditText
                 android:id="@+id/etBW"
                 android:layout_width="50dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:inputType="number"
-                android:paddingTop="20dp"
                 android:text=""
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
 
             <EditText
                 android:id="@+id/etSquat"
                 android:layout_width="50dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:inputType="number"
                 android:text=""
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
 
             <EditText
                 android:id="@+id/etBench"
                 android:layout_width="50dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:inputType="number"
                 android:text=""
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
 
             <EditText
                 android:id="@+id/etRow"
                 android:layout_width="50dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:inputType="number"
                 android:text=""
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
 
             <EditText
                 android:id="@+id/etOHP"
                 android:layout_width="50dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:inputType="number"
-                android:paddingTop="15dp"
                 android:text=""
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
             <EditText
                 android:id="@+id/etDL"
                 android:layout_width="50dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:inputType="number"
-                android:paddingTop="20dp"
                 android:text=""
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:textColor="@android:color/white"
@@ -147,64 +198,97 @@
             android:layout_height="match_parent" />
 
         <LinearLayout
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/txtUnits1s"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="29dp"
+                android:layout_height="50dp"
+                android:paddingTop="25dp"
+                android:text="@string/lb"
                 android:textColor="@color/accent_material_red"
-                android:textSize="12sp"
-                android:text="@string/lb" />
+                android:textSize="12sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
             <TextView
                 android:id="@+id/txtUnits2s"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="31dp"
+                android:layout_height="50dp"
+                android:paddingTop="25dp"
+                android:text="@string/lb"
                 android:textColor="@color/accent_material_red"
-                android:textSize="12sp"
-                android:text="@string/lb" />
+                android:textSize="12sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
             <TextView
                 android:id="@+id/txtUnits3s"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="32dp"
+                android:layout_height="50dp"
+                android:paddingTop="25dp"
+                android:text="@string/lb"
                 android:textColor="@color/accent_material_red"
-                android:textSize="12sp"
-                android:text="@string/lb" />
+                android:textSize="12sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
             <TextView
                 android:id="@+id/txtUnits4s"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="30dp"
+                android:layout_height="50dp"
+                android:paddingTop="25dp"
+                android:text="@string/lb"
                 android:textColor="@color/accent_material_red"
-                android:textSize="12sp"
-                android:text="@string/lb" />
+                android:textSize="12sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
             <TextView
                 android:id="@+id/txtUnits5s"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="33dp"
+                android:layout_height="50dp"
+                android:paddingTop="25dp"
+                android:text="@string/lb"
                 android:textColor="@color/accent_material_red"
-                android:textSize="12sp"
-                android:text="@string/lb" />
+                android:textSize="12sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
             <TextView
                 android:id="@+id/txtUnits6s"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="39dp"
+                android:layout_height="50dp"
+                android:paddingTop="25dp"
+                android:text="@string/lb"
                 android:textColor="@color/accent_material_red"
-                android:textSize="12sp"
-                android:text="@string/lb" />
+                android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
+
 
     <Button
         android:text="@string/saveStats"
         android:id="@+id/btnUpdStats"
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

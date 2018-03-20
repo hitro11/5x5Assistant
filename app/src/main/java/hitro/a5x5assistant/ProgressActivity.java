@@ -16,7 +16,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ProgressActivity extends BaseActivity {
 
@@ -27,6 +30,9 @@ public class ProgressActivity extends BaseActivity {
     TextView txtNoHistory;
     double ex1, ex2, ex3;
     DatabaseReference dbHistory;
+    String DB_DATE_FORMAT = "yyyy-MMM-dd HH:mm:ss";
+    String DISP_DATE_FORMAT = "EEE dd/MM/yyyy";
+    Date dTemp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +59,22 @@ public class ProgressActivity extends BaseActivity {
                         protected void populateViewHolder(ProgressHolder viewHolder, History model, int position) {
 
                             viewHolder.getTxtWorkout().setText(model.getWorkout());
-                            viewHolder.getTxtDate().setText(model.getDate());
 
-                            viewHolder.getTxtEx1DoneProg().setText(String.valueOf(model.isDoneEx1()));
-                            viewHolder.getTxtEx2DoneProg().setText(String.valueOf(model.isDoneEx2()));
-                            viewHolder.getTxtEx3DoneProg().setText(String.valueOf(model.isDoneEx3()));
+                            //String date = model.getDate();
+                            //date = date.substring(0,11);
+                            SimpleDateFormat sdf = new SimpleDateFormat(DB_DATE_FORMAT);
+                            try {
+                                dTemp = sdf.parse(model.getDate());
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            sdf.applyPattern(DISP_DATE_FORMAT);
+                            String date = sdf.format(dTemp);
+                            viewHolder.getTxtDate().setText(date);
+
+                            viewHolder.getTxtEx1DoneProg().setText(exerciseDoneFormatter(model.isDoneEx1()));
+                            viewHolder.getTxtEx2DoneProg().setText(exerciseDoneFormatter(model.isDoneEx2()));
+                            viewHolder.getTxtEx3DoneProg().setText(exerciseDoneFormatter(model.isDoneEx3()));
 
                             if (model.getWorkout().equals("A")) {
                                 viewHolder.getTxtEx1().setText(R.string.squat);
@@ -71,9 +88,11 @@ public class ProgressActivity extends BaseActivity {
                             }
 
                             if (units.equals(getResources().getString(R.string.lb))){
-                                viewHolder.getTxtEx1WProg().setText(String.valueOf(model.getEx1()));
-                                viewHolder.getTxtEx2WProg().setText(String.valueOf(model.getEx2()));
-                                viewHolder.getTxtEx3WProg().setText(String.valueOf(model.getEx3()));
+
+
+                                viewHolder.getTxtEx1WProg().setText(String.format(LB_FORMAT,model.getEx1()));
+                                viewHolder.getTxtEx2WProg().setText(String.format(LB_FORMAT,model.getEx2()));
+                                viewHolder.getTxtEx3WProg().setText(String.format(LB_FORMAT,model.getEx3()));
 
                                 viewHolder.getTxtUnit1Prog().setText(R.string.lb);
                                 viewHolder.getTxtUnit2Prog().setText(R.string.lb);
@@ -84,9 +103,9 @@ public class ProgressActivity extends BaseActivity {
                                 ex2 = Math.round(model.getEx2() / 5.5) * 2.5;
                                 ex3 = Math.round(model.getEx3() / 5.5) * 2.5;
 
-                                viewHolder.getTxtEx1WProg().setText(String.valueOf(ex1));
-                                viewHolder.getTxtEx2WProg().setText(String.valueOf(ex2));
-                                viewHolder.getTxtEx3WProg().setText(String.valueOf(ex3));
+                                viewHolder.getTxtEx1WProg().setText(String.format(KG_FORMAT, ex1));
+                                viewHolder.getTxtEx2WProg().setText(String.format(KG_FORMAT, ex2));
+                                viewHolder.getTxtEx3WProg().setText(String.format(KG_FORMAT, ex3));
 
                                 viewHolder.getTxtUnit1Prog().setText(R.string.kg);
                                 viewHolder.getTxtUnit2Prog().setText(R.string.kg);
@@ -105,6 +124,15 @@ public class ProgressActivity extends BaseActivity {
         }
         else {
             txtNoHistory.setVisibility(View.VISIBLE);
+        }
+    }
+
+    String exerciseDoneFormatter (boolean isDone) {
+        if (isDone) {
+            return "\u2714";
+        }
+        else {
+            return "\u2716";
         }
     }
 }

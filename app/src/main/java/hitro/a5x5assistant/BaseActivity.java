@@ -30,6 +30,9 @@ import java.util.Locale;
 public class BaseActivity extends AppCompatActivity {
 
     final String TAG = "BaseActivity";
+
+    final String LB_FORMAT = "%.0f";
+    final String KG_FORMAT = "%.1f";
     String uid;
     SharedPreferences sharedPref;
     String units;

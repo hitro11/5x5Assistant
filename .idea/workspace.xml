@@ -78,24 +78,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e21e376c-35a0-40eb-bf39-4ecea4abf99d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_firebaseui_firebase_ui_database_1_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/History.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/Progress.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/BaseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/BaseActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/ProgressActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/ProgressActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/ProgressHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/ProgressHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/SettingsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/SettingsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/WorkoutAActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/WorkoutAActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/WorkoutBActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/WorkoutBActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_guide.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_guide.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_stats.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_stats.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_workout_a.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_workout_a.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_workout_b.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_workout_b.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/progress_card.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/progress_card.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
     </list>
     <ignored path="5x5Assistant.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -138,49 +126,39 @@
       <file leaf-file-name="ProgressActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/ProgressActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="39" column="55" lean-forward="false" selection-start-line="39" selection-start-column="55" selection-end-line="39" selection-end-column="55" />
+            <state relative-caret-position="544">
+              <caret line="112" column="29" lean-forward="true" selection-start-line="112" selection-start-column="29" selection-end-line="112" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2673#2687#0" expanded="true" />
-                <element signature="e#2753#2767#0" expanded="true" />
-                <element signature="e#2833#2845#0" expanded="true" />
-                <element signature="e#2976#2990#0" expanded="true" />
-                <element signature="e#3056#3068#0" expanded="true" />
-                <element signature="e#3134#3145#0" expanded="true" />
-                <element signature="e#3224#3261#0" expanded="true" />
-                <element signature="e#3638#3649#0" expanded="true" />
-                <element signature="e#3721#3732#0" expanded="true" />
-                <element signature="e#3804#3815#0" expanded="true" />
-                <element signature="e#4458#4469#0" expanded="true" />
-                <element signature="e#4541#4552#0" expanded="true" />
-                <element signature="e#4624#4635#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SettingsActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/SettingsActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-              <folding>
-                <element signature="e#2080#2117#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="progress_card.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/progress_card.xml">
-          <provider selected="true" editor-type-id="android-designer2">
+      <file leaf-file-name="content_stats.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_stats.xml">
+          <provider editor-type-id="android-designer2">
             <state />
           </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="29" lean-forward="false" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-              <folding />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="48" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+              <folding>
+                <element signature="e#429#469#0" expanded="true" />
+                <element signature="e#1105#1117#0" expanded="true" />
+                <element signature="e#1585#1600#0" expanded="true" />
+                <element signature="e#2068#2083#0" expanded="true" />
+                <element signature="e#2551#2564#0" expanded="true" />
+                <element signature="e#3032#3045#0" expanded="true" />
+                <element signature="e#3513#3525#0" expanded="true" />
+                <element signature="e#7763#7775#0" expanded="true" />
+                <element signature="e#8270#8282#0" expanded="true" />
+                <element signature="e#8777#8789#0" expanded="true" />
+                <element signature="e#9284#9296#0" expanded="true" />
+                <element signature="e#9791#9803#0" expanded="true" />
+                <element signature="e#10298#10310#0" expanded="true" />
+                <element signature="e#10496#10515#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -188,10 +166,22 @@
       <file leaf-file-name="BaseActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/BaseActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="33" column="33" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+            <state relative-caret-position="238">
+              <caret line="38" column="32" lean-forward="true" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorkoutAActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/WorkoutAActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2210">
+              <caret line="156" column="72" lean-forward="false" selection-start-line="156" selection-start-column="50" selection-end-line="156" selection-end-column="72" />
+              <folding>
+                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -2020,7 +2010,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/text_logo_trans_round.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/Profile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/StatsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_settings.xml" />
@@ -2033,22 +2022,24 @@
         <option value="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/History.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/ProgressHolder.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_guide.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_stats.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_workout_a.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_workout_b.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/WorkoutAActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/BaseActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/SettingsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/progress_card.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/progress_card.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_stats.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/BaseActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/ProgressActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="953" />
-    <option name="width" value="974" />
-    <option name="height" value="1057" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -2074,7 +2065,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="settings.editor.selected.configurable" value="instant.run" />
-    <property name="SearchEverywhereHistoryKey" value="str&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/values/strings.xml&#10;basea&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/BaseActivity.java&#10;sett&#9;PSI&#9;JAVA://hitro.a5x5assistant.SettingsActivity&#10;progr&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/ProgressActivity.java&#10;stri&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/values/strings.xml&#10;workoutb&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/WorkoutBActivity.java&#10;worko&#9;PSI&#9;JAVA://hitro.a5x5assistant.WorkoutAActivity&#10;grad&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/build.gradle&#10;string&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/values/strings.xml&#10;build.&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/build.gradle&#10;prog&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/progress_card.xml&#10;content_work&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/content_workout_b.xml&#10;his&#9;PSI&#9;JAVA://hitro.a5x5assistant.HistoryB&#10;histo&#9;PSI&#9;JAVA://hitro.a5x5assistant.HistoryA&#10;content_set&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/content_settings.xml&#10;styles&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/values/styles.xml&#10;round_filled&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/drawable/button_round_filled.xml&#10;roundf&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/drawable/button_round_filled.xml&#10;content_wor&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/content_workout_a.xml&#10;content_wo&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/content_workout_a.xml&#10;content_sta&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/content_stats.xml&#10;content_st&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/content_stats.xml&#10;prof&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/Profile.java&#10;workouta&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/WorkoutAActivity.java&#10;content_stats&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/content_stats.xml&#10;logina&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/LoginActivity.java&#10;base&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/BaseActivity.java&#10;theme ed&#9;ACTION&#9;Android.ShowThemeEditor&#10;sharedp&#9;PSI&#9;JAVA://android.content.SharedPreferences&#10;hist&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/HistoryA.java&#10;profi&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/Profile.java&#10;google-ser&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/google-services.json&#10;profile.&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/Profile.java&#10;color&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/values/colors.xml&#10;profile&#9;PSI&#9;JAVA://hitro.a5x5assistant.Profile&#10;strings.xml&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/values/strings.xml&#10;progre&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/ProgressActivity.java&#10;stats&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/StatsActivity.java&#10;anif&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/AndroidManifest.xml&#10;statsa&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/StatsActivity.java&#10;histor&#9;ACTION&#9;Vcs.ShowTabbedFileHistory&#10;profilec&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/ProfileCreateActivity.java&#10;history.&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/History.java&#10;homea&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/HomeActivity.java&#10;login&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/content_login.xml&#10;preferences&#9;PSI&#9;JAVA://java.util.prefs.Preferences" />
+    <property name="SearchEverywhereHistoryKey" value="style&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/values/styles.xml&#10;content_stat&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/content_stats.xml&#10;workouta&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/WorkoutAActivity.java&#10;progr&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/ProgressActivity.java&#10;str&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/values/strings.xml&#10;basea&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/BaseActivity.java&#10;sett&#9;PSI&#9;JAVA://hitro.a5x5assistant.SettingsActivity&#10;stri&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/values/strings.xml&#10;workoutb&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/WorkoutBActivity.java&#10;worko&#9;PSI&#9;JAVA://hitro.a5x5assistant.WorkoutAActivity&#10;grad&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/build.gradle&#10;string&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/values/strings.xml&#10;build.&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/build.gradle&#10;prog&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/progress_card.xml&#10;content_work&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/content_workout_b.xml&#10;his&#9;PSI&#9;JAVA://hitro.a5x5assistant.HistoryB&#10;histo&#9;PSI&#9;JAVA://hitro.a5x5assistant.HistoryA&#10;content_set&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/content_settings.xml&#10;styles&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/values/styles.xml&#10;round_filled&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/drawable/button_round_filled.xml&#10;roundf&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/drawable/button_round_filled.xml&#10;content_wor&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/content_workout_a.xml&#10;content_wo&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/content_workout_a.xml&#10;content_sta&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/content_stats.xml&#10;content_st&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/content_stats.xml&#10;prof&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/Profile.java&#10;content_stats&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/content_stats.xml&#10;logina&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/LoginActivity.java&#10;base&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/BaseActivity.java&#10;theme ed&#9;ACTION&#9;Android.ShowThemeEditor&#10;sharedp&#9;PSI&#9;JAVA://android.content.SharedPreferences&#10;hist&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/HistoryA.java&#10;profi&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/Profile.java&#10;google-ser&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/google-services.json&#10;profile.&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/Profile.java&#10;color&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/values/colors.xml&#10;profile&#9;PSI&#9;JAVA://hitro.a5x5assistant.Profile&#10;strings.xml&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/values/strings.xml&#10;progre&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/ProgressActivity.java&#10;stats&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/StatsActivity.java&#10;anif&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/AndroidManifest.xml&#10;statsa&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/StatsActivity.java&#10;histor&#9;ACTION&#9;Vcs.ShowTabbedFileHistory&#10;profilec&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/ProfileCreateActivity.java&#10;history.&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/History.java&#10;homea&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/java/hitro/a5x5assistant/HomeActivity.java&#10;login&#9;FILE&#9;file://F:/Dev/Android/4GA3/5x5Assistant/app/src/main/res/layout/content_login.xml&#10;preferences&#9;PSI&#9;JAVA://java.util.prefs.Preferences" />
     <property name="android.project.structure.last.selected" value="Project" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlEditorPanel.WIDTH" value="266" />
@@ -2196,7 +2187,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521498941684" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521572583714" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2244,7 +2235,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521498941684" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521572583714" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2406,7 +2397,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521498941685" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521572583716" />
       </method>
     </configuration>
     <list size="2">
@@ -2457,11 +2448,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="974" height="1057" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.49573562" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869378" sideWeight="0.49573562" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20770878" sideWeight="0.4552239" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24733475" sideWeight="0.50440526" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2469,8 +2460,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3254818" sideWeight="0.34754798" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32441112" sideWeight="0.65245205" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33190578" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2482,8 +2473,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3993576" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2764,15 +2755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="61" lean-forward="false" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2796,7 +2778,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2814,7 +2795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="27" column="51" lean-forward="false" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2845,7 +2825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="43" column="49" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="43" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2856,18 +2835,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="864">
           <caret line="77" column="13" lean-forward="false" selection-start-line="77" selection-start-column="13" selection-end-line="78" selection-end-column="33" />
-          <folding>
-            <element signature="e#362#395#0" expanded="false" />
-            <element signature="e#420#455#0" expanded="false" />
-            <element signature="e#481#516#0" expanded="false" />
-            <element signature="e#540#573#0" expanded="false" />
-            <element signature="e#598#638#0" expanded="false" />
-            <element signature="e#966#981#0" expanded="false" />
-            <element signature="e#1452#1467#0" expanded="false" />
-            <element signature="e#1938#1951#0" expanded="false" />
-            <element signature="e#2420#2433#0" expanded="false" />
-            <element signature="e#2902#2914#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2911,41 +2878,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_stats.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="57" column="51" lean-forward="false" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
-          <folding>
-            <element signature="e#429#469#0" expanded="false" />
-            <element signature="e#692#713#0" expanded="false" />
-            <element signature="e#1349#1361#0" expanded="false" />
-            <element signature="e#1644#1659#0" expanded="false" />
-            <element signature="e#1942#1957#0" expanded="false" />
-            <element signature="e#2240#2253#0" expanded="false" />
-            <element signature="e#2536#2549#0" expanded="false" />
-            <element signature="e#2832#2844#0" expanded="false" />
-            <element signature="e#6608#6620#0" expanded="false" />
-            <element signature="e#6970#6982#0" expanded="false" />
-            <element signature="e#7332#7344#0" expanded="false" />
-            <element signature="e#7694#7706#0" expanded="false" />
-            <element signature="e#8056#8068#0" expanded="false" />
-            <element signature="e#8418#8430#0" expanded="false" />
-            <element signature="e#8512#8531#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/ProgressHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#1598#1599#0" expanded="true" />
-            <element signature="e#1627#1628#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2957,31 +2893,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/WorkoutAActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="133" column="66" lean-forward="false" selection-start-line="133" selection-start-column="66" selection-end-line="133" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/History.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="31" lean-forward="false" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
           <folding>
-            <element signature="e#641#642#0" expanded="true" />
-            <element signature="e#671#672#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/BaseActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="33" column="33" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#641#642#0" expanded="false" />
+            <element signature="e#671#672#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3004,36 +2922,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/WorkoutAActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="156" column="72" lean-forward="false" selection-start-line="156" selection-start-column="50" selection-end-line="156" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/progress_card.xml">
       <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="29" lean-forward="false" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        <state relative-caret-position="221">
+          <caret line="57" column="3" lean-forward="false" selection-start-line="57" selection-start-column="3" selection-end-line="57" selection-end-column="3" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="89" lean-forward="false" selection-start-line="10" selection-start-column="89" selection-end-line="10" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_stats.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="48" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+          <folding>
+            <element signature="e#429#469#0" expanded="true" />
+            <element signature="e#1105#1117#0" expanded="true" />
+            <element signature="e#1585#1600#0" expanded="true" />
+            <element signature="e#2068#2083#0" expanded="true" />
+            <element signature="e#2551#2564#0" expanded="true" />
+            <element signature="e#3032#3045#0" expanded="true" />
+            <element signature="e#3513#3525#0" expanded="true" />
+            <element signature="e#7763#7775#0" expanded="true" />
+            <element signature="e#8270#8282#0" expanded="true" />
+            <element signature="e#8777#8789#0" expanded="true" />
+            <element signature="e#9284#9296#0" expanded="true" />
+            <element signature="e#9791#9803#0" expanded="true" />
+            <element signature="e#10298#10310#0" expanded="true" />
+            <element signature="e#10496#10515#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/BaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="38" column="32" lean-forward="true" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/hitro/a5x5assistant/ProgressActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="55" lean-forward="false" selection-start-line="39" selection-start-column="55" selection-end-line="39" selection-end-column="55" />
+        <state relative-caret-position="544">
+          <caret line="112" column="29" lean-forward="true" selection-start-line="112" selection-start-column="29" selection-end-line="112" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2673#2687#0" expanded="true" />
-            <element signature="e#2753#2767#0" expanded="true" />
-            <element signature="e#2833#2845#0" expanded="true" />
-            <element signature="e#2976#2990#0" expanded="true" />
-            <element signature="e#3056#3068#0" expanded="true" />
-            <element signature="e#3134#3145#0" expanded="true" />
-            <element signature="e#3224#3261#0" expanded="true" />
-            <element signature="e#3638#3649#0" expanded="true" />
-            <element signature="e#3721#3732#0" expanded="true" />
-            <element signature="e#3804#3815#0" expanded="true" />
-            <element signature="e#4458#4469#0" expanded="true" />
-            <element signature="e#4541#4552#0" expanded="true" />
-            <element signature="e#4624#4635#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -45,11 +45,6 @@
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="1" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/chevron_right"
-                    android:layout_marginTop="20dp" />
             </LinearLayout>
             <TextView
                 android:text="test@gmail.com"
@@ -57,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="7dp"
-                android:layout_marginTop="-7dp"
+                android:layout_marginTop="15dp"
                 android:id="@+id/txtEmail"
                 android:textColor="@color/background_material_red" />
         </LinearLayout>

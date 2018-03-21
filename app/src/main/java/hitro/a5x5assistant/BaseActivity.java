@@ -130,7 +130,27 @@ public class BaseActivity extends AppCompatActivity {
                 double ohp = profile.getOhp();
                 double dl = profile.getDl();
 
-                if (units.equals(getString(R.string.kg))) {
+                if (units.equals(getString(R.string.lb))) {
+                    for (TextView textview : txtUnits) {
+                        textview.setText(getString(R.string.lb));
+                    }
+
+                    if (workout.equals("A")) {
+                        ((TextView) weightViews[0]).setText(String.format(LB_FORMAT, squat));
+                        ((TextView) weightViews[1]).setText(String.format(LB_FORMAT, bench));
+                        ((TextView) weightViews[2]).setText(String.format(LB_FORMAT, row));
+                    }
+                    if (workout.equals("B")) {
+                        ((TextView) weightViews[0]).setText(String.format(LB_FORMAT, squat));
+                        ((TextView) weightViews[1]).setText(String.format(LB_FORMAT, ohp));
+                        ((TextView) weightViews[2]).setText(String.format(LB_FORMAT, dl));
+                    }
+                }
+                else {
+                    for (TextView textview : txtUnits) {
+                        textview.setText(getString(R.string.kg));
+                    }
+
                     body = Math.round(body / 5.5) * 2.5;
                     squat = Math.round(squat / 5.5) * 2.5;
                     bench = Math.round(bench / 5.5) * 2.5;
@@ -138,28 +158,15 @@ public class BaseActivity extends AppCompatActivity {
                     ohp = Math.round(ohp / 5.5) * 2.5;
                     dl = Math.round(dl / 5.5) * 2.5;
 
-                    for (int i = 0; i < txtUnits.length; i++) {
-                        txtUnits[i].setText(R.string.kg);
+                    if (workout.equals("A")) {
+                        ((TextView) weightViews[0]).setText(String.format(KG_FORMAT, squat));
+                        ((TextView) weightViews[1]).setText(String.format(KG_FORMAT, bench));
+                        ((TextView) weightViews[2]).setText(String.format(KG_FORMAT, row));
                     }
-                }
-
-                double[] values = new double[] {body, squat, bench, row, ohp, dl};
-
-                if (workout.equals("A")) {
-                    ((TextView) weightViews[0]).setText(String.valueOf(squat));
-                    ((TextView) weightViews[1]).setText(String.valueOf(bench));
-                    ((TextView) weightViews[2]).setText(String.valueOf(row));
-                    return;
-                }
-                if (workout.equals("B")) {
-                    ((TextView) weightViews[0]).setText(String.valueOf(squat));
-                    ((TextView) weightViews[1]).setText(String.valueOf(ohp));
-                    ((TextView) weightViews[2]).setText(String.valueOf(dl));
-                    return;
-                }
-                if (workout.equals("")) {
-                    for (int i = 0; i < weightViews.length; i++) {
-                        ((TextView) weightViews[i]).setText(String.valueOf(values[i]));
+                    if (workout.equals("B")) {
+                        ((TextView) weightViews[0]).setText(String.format(KG_FORMAT, squat));
+                        ((TextView) weightViews[1]).setText(String.format(KG_FORMAT, ohp));
+                        ((TextView) weightViews[2]).setText(String.format(KG_FORMAT, dl));
                     }
                 }
             }
